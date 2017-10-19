@@ -1,4 +1,1 @@
-
-  <script>
-    alert( 'Hello, world!' );
-  </script>
+print("hello world");
