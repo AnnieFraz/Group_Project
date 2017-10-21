@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="chat-area"></div>
+    <form id="messageForm">
+      <label>Enter Message</label>
+      <textarea id="message"></textarea>
+      <br>
+      <input type="submit" value="Send Message">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            //alert("hurrah");
+            var socket = io.connect(); 
+        }); 
+ </script>
+  </body>
+</html>
