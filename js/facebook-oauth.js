@@ -1,7 +1,10 @@
 
- window.fbAsyncInit = function() {
+
+//console.log(process.env.APP_ID);
+
+window.fbAsyncInit = function() {
         FB.init({
-          appId      : process.env.APP_ID,
+          appId      : '1558967270863768',
           cookie     : true,
           xfbml      : true,
           version    : 'v2.8'
