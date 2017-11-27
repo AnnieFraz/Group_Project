@@ -147,9 +147,15 @@ background:#D8D8D8;
 		background: #E78174;
 }
 
-#profile{
+#profile {
     height:5px;
     width:5px;
     border-radius:50%;
     text-align: center;
 }
+
+#map {
+        width: 500px;
+        height: 400px;
+      }
+
