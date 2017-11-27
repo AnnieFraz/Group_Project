@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     
   </head>
@@ -46,12 +46,50 @@
     </nav>
     <!--end of navbar-->
     
+    <!--left column-->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-center">
+            <h1>Map</h1>
+            <div w-type="map" w-tmapikey="ZuGAI6DrdBeDXwMKU73YqMtLwWnB1fA8" w-googleapikey="AIzaSyBQrJ5ECXDaXVlICIdUBOe8impKIGHDzdA" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="1" w-borderradius="4" w-postalcode="" w-radius="25" w-countrycode="US" w-city="Los Angeles" w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="" w-latlong="">
+              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQrJ5ECXDaXVlICIdUBOe8impKIGHDzdA&libraries=visualization,places" async defer></script>
+              <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
+            </div>
+        </div>
+      </div>
+     </div>
+     
+     <!--end of left column-->
+     
+     <!--right column-->
+     <div class="col-md-9 personal-info">
+        <div class="">
+        </div>
+        <h3>Personal info</h3>
+        
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">City</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Zip Code</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" >
+            </div>
+          </div>
+         </form>
+          
+     <!--end of right column-->
+    
     <!--beginning of googlemaps -->
-    <p id="location">location there</p>
-    <div id="map"></div>
-    <div id="events"></div>
-    <script src="js/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/jskey=AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k" async defer></script>
+    <!--<p id="location">location there</p>-->
+    <!--<div id="map"></div>-->
+    <!--<div id="events"></div>-->
+    <!--<script src="js/script.js"></script>-->
+    <!--<script src="https://maps.googleapis.com/maps/api/jskey=AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k" async defer></script>-->
     <!--end of googlemaps -->
     
     
