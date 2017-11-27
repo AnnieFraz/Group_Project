@@ -6,7 +6,9 @@
   "directories": {
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-chat-widget": "^2.1.1"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "mocha"
