@@ -1,19 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
   <head>
     <title>Event Finder</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/Logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <style>
+      #attraction-panel {
+        display:none;
+      }
+    </style>
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
+
   <body>
+    
     <!--beginning of navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Event Finder</a>
@@ -23,16 +35,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Events</a>
+            <a class="nav-link" href="events.html">Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profile.html">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="index.html">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Logout</a>
@@ -45,56 +57,65 @@
       </div>
     </nav>
     <!--end of navbar-->
-    
-    <!--left column-->
-    <div class="row">
-      <div class="col-md-6">
-        <div class="text-center">
-            <h1>Map</h1>
-            <div w-type="map" w-tmapikey="ZuGAI6DrdBeDXwMKU73YqMtLwWnB1fA8" w-googleapikey="AIzaSyBQrJ5ECXDaXVlICIdUBOe8impKIGHDzdA" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="1" w-borderradius="4" w-postalcode="" w-radius="25" w-countrycode="US" w-city="Los Angeles" w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="" w-latlong="">
-              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQrJ5ECXDaXVlICIdUBOe8impKIGHDzdA&libraries=visualization,places" async defer></script>
-              <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+        <div id='events-panel' class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Events</h3>
+          </div>
+          <div class="panel-body">
+            <div id="events" class="list-group">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
             </div>
+          </div>
+          <div class="panel-footer">
+            <nav>
+              <ul class="pager">
+                <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
+                <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        
+        <div id='attraction-panel' class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Attraction</h3>
+          </div>
+          <div id="attraction" class="panel-body">
+            <h4 class="list-group-item-heading">Attraction title</h4>
+            <img class="col-xs-12" src="">
+            <p id="classification"></p>
+          </div>
+        </div>
         </div>
       </div>
-     </div>
-     
-     <!--end of left column-->
-     
-     <!--right column-->
-     <div class="col-md-9 personal-info">
-        <div class="">
-        </div>
-        <h3>Personal info</h3>
-        
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">City</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Zip Code</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" >
-            </div>
-          </div>
-         </form>
-          
-     <!--end of right column-->
-    
-    <!--beginning of googlemaps -->
-    <!--<p id="location">location there</p>-->
-    <!--<div id="map"></div>-->
-    <!--<div id="events"></div>-->
-    <!--<script src="js/script.js"></script>-->
-    <!--<script src="https://maps.googleapis.com/maps/api/jskey=AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k" async defer></script>-->
-    <!--end of googlemaps -->
-    
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
   </body>
+
 </html>
