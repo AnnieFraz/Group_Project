@@ -31,6 +31,36 @@ function getEvents(page) {
   });
 }
 
+function searchEvents(keyword) {
+  $('#events-panel').show();
+  $('#attraction-panel').hide();
+
+  if (page < 0) {
+    page = 0;
+    return;
+  }
+  if (page > 0) {
+    if (page > getEvents.json.page.totalPages-1) {
+      page=0;
+      return;
+    }
+  }
+  
+  $.ajax({
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyword + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
+    async:true,
+    dataType: "json",
+    success: function(json) {
+          getEvents.json = json;
+  			  showEvents(json);
+  		   },
+    error: function(xhr, status, err) {
+  			  console.log(err);
+  		   }
+  });
+}
+
 function showEvents(json) {
   var items = $('#events .list-group-item');
   items.hide();
@@ -93,5 +123,13 @@ function showAttraction(json) {
   $('#attraction img').first().attr('src',json.images[0].url);
   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
 }
+
+$('#search_form').submit(function (evt) {
+    evt.preventDefault();
+    let keyword = $('#search_input').val();
+    //alert(keyword);
+    searchEvents(keyword);
+  
+});
 
 getEvents(page);
