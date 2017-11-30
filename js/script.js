@@ -1,7 +1,6 @@
 var page = 0;
 
 function getEvents(page) {
-
   $('#events-panel').show();
   $('#attraction-panel').hide();
 
