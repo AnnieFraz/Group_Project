@@ -1,6 +1,14 @@
 var page = 0;
 
+// var keys = {
+//   tmkey: process.env.TICKETMASTER_API_KEY
+// }
+
+
 function getEvents(page) {
+ console.log("apikey " + window.TICKETMASTER_API_KEY)
+  
+  
   $('#events-panel').show();
   $('#attraction-panel').hide();
 
