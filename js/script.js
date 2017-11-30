@@ -1,7 +1,11 @@
 var page = 0;
 
-function getEvents(page) {
 
+
+function getEvents(page) {
+  console.log("apikey " + process.env.TICKETMASTER_API_KEY)
+  
+  
   $('#events-panel').show();
   $('#attraction-panel').hide();
 
