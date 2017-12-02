@@ -10,6 +10,8 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   
         <title>EventFinder Login</title>
+        <!--<META http-equiv="refresh" content="30;URL=events.html">-->
+        
 
         </head>
         <body>
@@ -20,9 +22,12 @@
 <div class="box">
 <h1>Event Finder Login</h1>
 
-<input type="email" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-  
-<input type="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+<!-- onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');"
+onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" -->
+
+<input type="email" name="email" value="email" class="email" />
+  <br>
+<input type="password" name="password" value="password"  class="password" />
 <br></br>
 <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>
 <br></br>
@@ -36,13 +41,15 @@
 
 								</div>
   
-<a href="#"><div class="btn">Sign In</div></a> <!-- End Btn -->
+<a href="events.html"><div class="btn">Sign In</div></a> <!-- End Btn -->
 
-<a href="#"><div id="btn2">Sign Up</div></a> <!-- End Btn2 -->
+<a href="addProfile.html"><div id="btn2">Sign Up</div></a> <!-- End Btn2 -->
 
 
 <script>
       function onSignIn(googleUser) {
+         // ';
+          
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -55,7 +62,12 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+       // window.setTimeout("
+       //window.location.href = 'events.html';
+        
       };
+      
+      
     </script>
   
 </div> <!-- End Box -->
