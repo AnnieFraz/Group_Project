@@ -13,7 +13,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             //display user data
-            getFbUserData();
+            //getFbUserData();
         }
     });
 };
