@@ -38,10 +38,10 @@ function getEvents(page) {
   });
 }
 
-function searchEvents(keyword) {
+function searchEvents(searchFilter, searchCriteria) {
   $('#events-panel').show();
   $('#attraction-panel').hide();
-
+  
   if (page < 0) {
     page = 0;
     return;
@@ -55,7 +55,7 @@ function searchEvents(keyword) {
   
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyword + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?" + searchFilter + "=" + searchCriteria + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
@@ -133,9 +133,12 @@ function showAttraction(json) {
 
 $('#search_form').submit(function (evt) {
     evt.preventDefault();
-    let keyword = $('#search_input').val();
-    //alert(keyword);
-    searchEvents(keyword);
+    let searchFilter = $("#search_filter").val();
+    // searchFilter = searchFilter.substr(3); // removes the 'by ' phrase from the filter to get key to use in url
+    alert(searchFilter);
+    let searchCriteria = $('#search_input').val();
+    alert(searchCriteria);
+    searchEvents(searchFilter ,searchCriteria);
   
 });
 
