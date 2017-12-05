@@ -45,14 +45,16 @@ function getFbUserData(){
     function (response) {
         //document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
        // document.getElementById('fbLink').getElementsByClassName('icon_title')[0].innerHTML = 'Logout from Facebook';
+       console.log(response);
+       writeToDB(response);
         document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
-        document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
+        document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+ response.id+'</p><p><b>Name:</b> '+ response.first_name+' '+ response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
         document.getElementById('login-form').style.display = "none";
         document.getElementById('logout-div').style.display = "block";
     });
 }
 
-// // Logout from facebook
+// Logout from facebook
 function fbLogout() {
     FB.logout(function() {
         //document.getElementById('logout-btn').setAttribute("onclick","fbLogin()");
@@ -61,5 +63,28 @@ function fbLogout() {
         document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
         document.getElementById('login-form').style.display = "block";
         document.getElementById('logout-div').style.display = "none";
+    });
+}
+
+function writeToDB(user) {
+    var MongoClient = require('mongodb').MongoClient, assert = require('assert');
+    // Connection URL
+    var url = 'mongodb://localhost:27017/myproject';
+    // check if user exists
+    
+    
+    
+    // write to db
+    
+    // Use connect method to connect to the server
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(null, err);
+        
+        // db.users.insert({
+        // user_id: user.id, first_name: user.first_name, last_name: user.last_name,
+        // password: " ", email: user.email, city: " ",
+        // picture_url: user.picture.data.url});
+        
+        db.close();
     });
 }
