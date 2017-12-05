@@ -42,6 +42,20 @@
 
 
 <script>
+<<<<<<< HEAD
+=======
+var MongoClient = require('mongodb').MongoClient, assert = require('assert');
+
+// Connection URL
+var url = 'mongodb://localhost:27017/myproject';
+
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+  db.close();
+});
+>>>>>>> 80d848b7e9c0d77dc48da347b4fdcab9a50a603c
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
