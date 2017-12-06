@@ -1,12 +1,13 @@
 {
-  "name": "final_project-438",
+  "name": "final",
   "version": "1.0.0",
   "description": "Final Project",
   "main": "hello_world.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "dependencies": {
+    "mongodb": "^2.2.33",
     "react-chat-widget": "^2.1.1"
   },
   "devDependencies": {},
