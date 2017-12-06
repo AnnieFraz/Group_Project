@@ -12,17 +12,22 @@
     "test": "tests"
   },
   "dependencies": {
+<<<<<<< HEAD
 =======
     "test": "test"
   },
   "dependencies": {
     "mongodb": "^2.2.33",
 >>>>>>> 80d848b7e9c0d77dc48da347b4fdcab9a50a603c
+=======
+    "google-auth-library": "^0.12.0",
+>>>>>>> 607f5016741a823a3e05e1d07db63594033228a7
     "react-chat-widget": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "mocha"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -34,4 +39,6 @@
     "url": "https://github.com/AnnieFraz/Group_Project/issues"
   },
   "homepage": "https://github.com/AnnieFraz/Group_Project#readme"
+  
+
 }

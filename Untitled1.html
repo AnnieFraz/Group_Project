@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+       <link rel="stylesheet" href="css/style2.css" type="text/css" />
+       <style>
+           .header {
+
+  .logout-button, 
+  .welcome {
+    display: none;
+  }
+
+  &.state-logged-in {
+    .logout-button, 
+    .welcome {
+      display: block;
+    }    
+  }
+  
+}
+
+.user-authorization {
+  padding: 10px;
+  background-color: #DDD;
+
+  .login-form {
+    &.state-hidden {
+      display: none;
+    }
+  }
+
+  .login-user {
+    &.state-hidden {
+      display: none;
+    }
+  }
+
+}
+
+
+// DEMO Purposes only
+* {
+  font-family: sans-serif;
+}
+       </style>
+    </head>
+    <body>
+        <header data-header class="header">
+  <button data-logout-button class='logout-button'>Logout</button>
+  <div class="welcome">'Ello.</div>
+  <img src="http://placekitten.com/g/100/100" alt="" />
+</header>
+
+<div class="user-authorization">
+  <form data-login-form action="" class="login-form" onsubmit="return false;">
+    <input type="text" class='login-username' />
+    <button data-login-button class='login-button'>Login</button>
+  </form>
+  <div data-login-user class="login-user state-hidden">
+    Yo, username.
+    <button data-logout-button class='logout-button'>Logout</button>
+  </div>
+</div>
+<script>
+    $('document').ready(function(){
+  
+  $('[data-login-button], [data-logout-button]').click(function(){
+    $('[data-login-form], [data-login-user]').toggleClass('state-hidden');
+    $('[data-header]').toggleClass('state-logged-in');
+  });
+  
+});
+</script>
+
+    </body>
+</html>
