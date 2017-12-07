@@ -1,6 +1,34 @@
 var page = 0;
 
+function updatePage() {
+      
+  $.ajax({
+    type:"GET",
+    url:'/test',
+    // async:true,
+    // dataType: "json",
+    success: function(json) {
+           console.log("weird");
+          console.log("json msg")
+          console.log(json);
+  		   },
+    error: function(xhr, status, err) {
+  			  console.log(err);
+  		   }
+  });
+}
+
 function getEvents(page) {
+  console.log("what is going on here");
+  //updatePage();
+  // var myVar = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
+  // console.log("here");
+  // console.log(myVar);
+//console.log("apikey: " + process.env.TICKET_MASTER_API_KEY);
+  // var res = JSON.parse("<%= JSON.stringify(data) %>");
+  // console.log(res);
+  $('#events-panel').show();
+  $('#attraction-panel').hide();
 
   if (page < 0) {
     page = 0;
@@ -15,7 +43,7 @@ function getEvents(page) {
   
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + process.env.TICKET_MASTER_API_KEY + "&size=4&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
@@ -28,48 +56,33 @@ function getEvents(page) {
   });
 }
 
-function searchEvents(searchFilter, searchCriteria) {
+function searchEvents(keyword) {
   $('#events-panel').show();
   $('#attraction-panel').hide();
-  
-  let date = new Date();
-  let dd = date.getDate();
-  let mm = date.getMonth() + 1;
-  let yyyy = date.getFullYear();
-  
-  if (dd < 10) {
-    dd = '0' + dd;
-  }
-  if (mm < 10) {
-    mm = '0' + mm;
-  }
-  // 2017-12-06T16:37:00Z
-  let today = yyyy + '-' + mm + '-' + dd + 'T00:00:00Z';
-  console.log(today);
-  
+
   if (page < 0) {
     page = 0;
     return;
   }
   if (page > 0) {
-    if (page > getEvents.json.page.totalPages - 1) {
-      page = 0;
+    if (page > getEvents.json.page.totalPages-1) {
+      page=0;
       return;
     }
   }
-
+  
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?" + searchFilter + "=" + searchCriteria + "&startDateTime=" + today + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyword + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
-      getEvents.json = json;
-      showEvents(json);
-    },
+          getEvents.json = json;
+  			  showEvents(json);
+  		   },
     error: function(xhr, status, err) {
-      console.log(err);
-    }
+  			  console.log(err);
+  		   }
   });
 }
 
@@ -78,12 +91,9 @@ function showEvents(json) {
   items.hide();
   var events = json._embedded.events;
   var item = items.first();
-  for (var i = 0; i < events.length; i++) {
+  for (var i=0;i<events.length;i++) {
     item.children('.list-group-item-heading').text(events[i].name);
     item.children('.list-group-item-text').text(events[i].dates.start.localDate);
-    item.children('.link').text(events[i].url);
-    item.children('.min_price').text("Lowest price: $" + events[i].priceRanges[0].min);
-    item.children('.max_price').text("Highest Price: $" + events[i].priceRanges[0].max);
     try {
       item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
     } catch (err) {
@@ -96,10 +106,10 @@ function showEvents(json) {
       try {
         getAttraction(eventObject.data._embedded.attractions[0].id);
       } catch (err) {
-        console.log(err);
+      console.log(err);
       }
     });
-    item = item.next();
+    item=item.next();
   }
 }
 
@@ -113,41 +123,37 @@ $('#next').click(function() {
 
 function getAttraction(id) {
   $.ajax({
-    type: "GET",
-    url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG",
-    async: true,
+    type:"GET",
+    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey=ZuGAI6DrdBeDXwMKU73YqMtLwWnB1fA8",
+    async:true,
     dataType: "json",
     success: function(json) {
-      showAttraction(json);
-    },
+          showAttraction(json);
+  		   },
     error: function(xhr, status, err) {
-      console.log(err);
-    }
+  			  console.log(err);
+  		   }
   });
 }
 
 function showAttraction(json) {
   $('#events-panel').hide();
   $('#attraction-panel').show();
-
+  
   $('#attraction-panel').click(function() {
     getEvents(page);
   });
-
+  
   $('#attraction .list-group-item-heading').first().text(json.name);
-  $('#attraction img').first().attr('src', json.images[0].url);
+  $('#attraction img').first().attr('src',json.images[0].url);
   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
-  $('#url').text(json.pleaseNote);
 }
 
 $('#search_form').submit(function (evt) {
     evt.preventDefault();
-    let searchFilter = $("#search_filter").val();
-    // searchFilter = searchFilter.substr(3); // removes the 'by ' phrase from the filter to get key to use in url
-    alert(searchFilter);
-    let searchCriteria = $('#search_input').val();
-    alert(searchCriteria);
-    searchEvents(searchFilter ,searchCriteria);
+    let keyword = $('#search_input').val();
+    //alert(keyword);
+    searchEvents(keyword);
   
 });
 
