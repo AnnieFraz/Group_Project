@@ -1,13 +1,14 @@
 {
-  "name": "final_project-438",
+  "name": "final",
   "version": "1.0.0",
   "description": "Final Project",
   "main": "hello_world.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "dependencies": {
     "google-auth-library": "^0.12.0",
+    "mongodb": "^2.2.33",
     "react-chat-widget": "^2.1.1"
   },
   "devDependencies": {},

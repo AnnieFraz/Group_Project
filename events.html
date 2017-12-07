@@ -3,9 +3,14 @@
 
   <head>
     <title>Event Finder</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/Logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <style>
       #attraction-panel {
         display:none;
@@ -47,7 +52,12 @@
         </ul>
         <form id="search_form" class="form-inline my-2 my-lg-0">
           <input id="search_input" class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <select id="search_filter">
+            <option value="keyword">by keyword</option>
+            <option value="city">by city</option>
+            <option value="postalcode">by postalcode</option>
+          </select>
+          <button style="margin-left: 10px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
@@ -122,15 +132,7 @@
             </a>
           </div>
         </div>
-          <!--<div class="panel-footer">-->
-          <!--  <nav>-->
-          <!--    <ul class="nav nav-pills">-->
-          <!--      <li id="prev" class="nav-item previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>-->
-          <!--      <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>-->
-          <!--    </ul>-->
-          <!--  </nav>-->
-          <!--</div>-->
-        
+
         <div id='attraction-panel' class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">Attraction</h3>
@@ -147,6 +149,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
     <script src="js/script.js"></script>
   </body>
 
