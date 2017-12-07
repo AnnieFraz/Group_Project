@@ -146,7 +146,7 @@ function showAttraction(json) {
   
   $('#add-events-profile').click(function() {
       // $('#alert-profile').show();
-      alert('this is an alert');
+      alert('Added to Profile');
   })
   
   
@@ -162,9 +162,9 @@ $('#search_form').submit(function (evt) {
     evt.preventDefault();
     let searchFilter = $("#search_filter").val();
     // searchFilter = searchFilter.substr(3); // removes the 'by ' phrase from the filter to get key to use in url
-    alert(searchFilter);
+    //alert(searchFilter);
     let searchCriteria = $('#search_input').val();
-    alert(searchCriteria);
+    //alert(searchCriteria);
     searchEvents(searchFilter ,searchCriteria);
   
 });
