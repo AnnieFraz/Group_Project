@@ -8,11 +8,8 @@
     <link rel="shortcut icon" href="img/Logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style>
       #attraction-panel {
         display:none;
@@ -61,43 +58,35 @@
     </nav>
     <!--end of navbar-->
     
-    <main role="main" class="container">
-
-      <div class="row row-offcanvas row-offcanvas-right">
-
-        <div class="col-12 col-md-9">
-          <p class="float-right d-md-none">
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
-          </p>
-          <div class="jumbotron">
-            <h1>Hello, world!</h1>
-            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+    <!--start of jumbotron-->
+    <div class="jumbotron">
+      <h1 class="display-3">Welcome!</h1>
+      <p class="lead">Welcome to Event Finder! The one stop for all events near you </p>
+      </div>
+      <!--<hr class="my-4">-->
+      <div class="col-20 col-md-20 sidebar-offcanvas" id="sidebar">
+      <div w-type="map" w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG" w-googleapikey="246480850653-20olgfmijst2977ju9feja8rjrsld8u6" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="1" w-borderradius="4" w-postalcode="90210" w-radius="25" w-countrycode="US" w-city="" w-period="day" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="" w-latlong=""></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIPAhkpV21XuPwUIDzmu24snaQCZa38UE&libraries=visualization,places" async defer></script>
+<script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
+    </div>
+    <!--end of jumbotron-->
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Profile</h2>
+            <p>Have a secure profile where you can add events too and personalise them to your needs.  </p>
+            <p><a class="btn btn-secondary" href="profile.html" role="button">View &raquo;</a></p>
           </div>
-          <div class="row">
-            <div class="col-6 col-lg-4">
-              <h2>Search for Events</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Create a Profile</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Get Tickets</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
-
-        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <div w-type="map" w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG" w-googleapikey="AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="30" w-border="1" w-borderradius="4" w-postalcode="" w-radius="25" w-countrycode="US" w-city="San Francisco" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="" w-latlong="">
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k&libraries=visualization,places" async defer></script>
-                <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
-            </div>
+          <div class="col-md-4">
+            <h2>Events</h2>
+            <p>All of your events in one place! Events from all over the countries and from many different sites are all here at your fingertips</p>
+            <p><a class="btn btn-secondary" href="events.html" role="button">View &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Zip Code</h2>
+            <p>Search for events in your local area using zip code as well as other features. </p>
+            
           </div>
         </div><!--/span-->
       </div><!--/row-->
@@ -106,8 +95,10 @@
 
     </main><!--/.container-->
 
-    <footer>
-      <p>&copy; Company 2017</p>
+      </div> <!-- /container -->
+      
+    <footer class="container">
+      <p>&copy; EventFinder 2017</p>
     </footer>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

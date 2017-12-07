@@ -1,5 +1,5 @@
 {
-  "name": "final",
+  "name": "final_project-438",
   "version": "1.0.0",
   "description": "Final Project",
   "main": "hello_world.js",
@@ -7,12 +7,15 @@
     "test": "test"
   },
   "dependencies": {
+    "google-auth-library": "^0.12.0",
     "mongodb": "^2.2.33",
+    "google-auth-library": "^0.12.0",
     "react-chat-widget": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "mocha"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -24,4 +27,6 @@
     "url": "https://github.com/AnnieFraz/Group_Project/issues"
   },
   "homepage": "https://github.com/AnnieFraz/Group_Project#readme"
+  
+
 }
