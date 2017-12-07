@@ -1,5 +1,5 @@
 {
-  "name": "final",
+  "name": "final_project-438",
   "version": "1.0.0",
   "description": "Final Project",
   "main": "hello_world.js",
@@ -9,6 +9,7 @@
   "dependencies": {
     "google-auth-library": "^0.12.0",
     "mongodb": "^2.2.33",
+    "google-auth-library": "^0.12.0",
     "react-chat-widget": "^2.1.1"
   },
   "devDependencies": {},
