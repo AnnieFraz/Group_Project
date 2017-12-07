@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>Event Finder</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="img/Logo.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Latest compiled and minified CSS -->
-  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <style>
-      #attraction-panel {
-        display: none;
-      }
-    </style>
-  
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  </head>
+<head>
+  <title>Event Finder</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="img/Logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Latest compiled and minified CSS -->
 
-  <body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <style>
+    #attraction-panel {
+      display: none;
+    }
+  </style>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="246480850653-20olgfmijst2977ju9feja8rjrsld8u6.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
   <!--beginning of navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Event Finder</a>
@@ -65,13 +69,13 @@
           <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
         </p>
         <div class="jumbotron">
-          <h1>Hello, world!</h1>
-          <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          <h1>Welcome to EventFinder!</h1>
+          <p> Welcome to EventFinder! The one stop for all events near you</p>
         </div>
         <div class="row">
           <div class="col-6 col-lg-4">
             <h2>Profile</h2>
-            <p>Have a secure profile where you can add events too and personalise them to your needs.  </p>
+            <p>Have a secure profile where you can add events too and personalise them to your needs. </p>
             <p><a class="btn btn-secondary" href="profile.html" role="button">View &raquo;</a></p>
           </div>
           <!--/span-->
@@ -93,9 +97,10 @@
 
       <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
         <div class="list-group">
-          <div w-type="map" w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG" w-googleapikey="AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="30" w-border="1" w-borderradius="4" w-postalcode=""
-          w-radius="25" w-countrycode="US" w-city="San Francisco" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="" w-latlong="">
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEb7x_7_jYe6X0J3oF6obe7rGVAWgdO6k&libraries=visualization,places" async defer></script>
+          <div w-type="map" w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG" w-googleapikey="246480850653-20olgfmijst2977ju9feja8rjrsld8u6" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="30" w-border="1" w-borderradius="4"
+          w-postalcode="" w-radius="25" w-countrycode="US" w-city="San Francisco" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source=""
+          w-latlong="">
+            <script src="https://maps.googleapis.com/maps/api/js?key=246480850653-20olgfmijst2977ju9feja8rjrsld8u6&libraries=visualization,places" async defer></script>
             <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
           </div>
         </div>
@@ -114,6 +119,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
-  </body>
+</body>
 
 </html>

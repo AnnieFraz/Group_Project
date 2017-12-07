@@ -18,7 +18,7 @@ function getEvents(page) {
 
   $.ajax({
     type: "GET",
-    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=6&page=" + page,
+    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=8&page=" + page,
     async: true,
     dataType: "json",
     success: function(json) {
@@ -39,6 +39,7 @@ function showEvents(json) {
   for (var i = 0; i < events.length; i++) {
     item.children('.list-group-item-heading').text(events[i].name);
     item.children('.list-group-item-text').text(events[i].dates.start.localDate);
+    item.children('.start-time').text("Event Start: " + events[i].dates.start.localTime);
     item.children('.link').text(events[i].url);
     item.children('.min_price').text("Lowest price: $" + events[i].priceRanges[0].min);
     item.children('.max_price').text("Highest Price: $" + events[i].priceRanges[0].max);
@@ -88,14 +89,20 @@ function showAttraction(json) {
   $('#events-panel').hide();
   $('#attraction-panel').show();
 
-  $('#attraction-panel').click(function() {
+  $('#card-go-back').click(function() {
     getEvents(page);
   });
+  
+  $('#tm-purchase').click(function() {
+    url = json.url
+    // alert(url)
+    window.open(url)
+  });
 
-  $('#attraction .list-group-item-heading').first().text(json.name);
+  $('#attraction card-title').first().text(json.name);
   $('#attraction img').first().attr('src', json.images[0].url);
   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
-  $('#url').text(json.pleaseNote);
+  $('#description'.text(json.description));
 }
 
 $('#search_form').submit(function (evt) {
@@ -105,5 +112,6 @@ $('#search_form').submit(function (evt) {
     searchEvents(keyword);
   
 });
+
 
 getEvents(page);
