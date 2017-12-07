@@ -10,54 +10,24 @@ function getEvents(page) {
     return;
   }
   if (page > 0) {
-    if (page > getEvents.json.page.totalPages-1) {
-      page=0;
+    if (page > getEvents.json.page.totalPages - 1) {
+      page = 0;
       return;
     }
   }
-  
+
   $.ajax({
-    type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
-    async:true,
+    type: "GET",
+    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=6&page=" + page,
+    async: true,
     dataType: "json",
     success: function(json) {
-          getEvents.json = json;
-  			  showEvents(json);
-  		   },
+      getEvents.json = json;
+      showEvents(json);
+    },
     error: function(xhr, status, err) {
-  			  console.log(err);
-  		   }
-  });
-}
-
-function searchEvents(keyword) {
-  $('#events-panel').show();
-  $('#attraction-panel').hide();
-
-  if (page < 0) {
-    page = 0;
-    return;
-  }
-  if (page > 0) {
-    if (page > getEvents.json.page.totalPages-1) {
-      page=0;
-      return;
+      console.log(err);
     }
-  }
-  
-  $.ajax({
-    type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyword + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
-    async:true,
-    dataType: "json",
-    success: function(json) {
-          getEvents.json = json;
-  			  showEvents(json);
-  		   },
-    error: function(xhr, status, err) {
-  			  console.log(err);
-  		   }
   });
 }
 
@@ -66,9 +36,12 @@ function showEvents(json) {
   items.hide();
   var events = json._embedded.events;
   var item = items.first();
-  for (var i=0;i<events.length;i++) {
+  for (var i = 0; i < events.length; i++) {
     item.children('.list-group-item-heading').text(events[i].name);
     item.children('.list-group-item-text').text(events[i].dates.start.localDate);
+    item.children('.link').text(events[i].url);
+    item.children('.min_price').text("Lowest price: $" + events[i].priceRanges[0].min);
+    item.children('.max_price').text("Highest Price: $" + events[i].priceRanges[0].max);
     try {
       item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
     } catch (err) {
@@ -81,10 +54,10 @@ function showEvents(json) {
       try {
         getAttraction(eventObject.data._embedded.attractions[0].id);
       } catch (err) {
-      console.log(err);
+        console.log(err);
       }
     });
-    item=item.next();
+    item = item.next();
   }
 }
 
@@ -98,30 +71,31 @@ $('#next').click(function() {
 
 function getAttraction(id) {
   $.ajax({
-    type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey=ZuGAI6DrdBeDXwMKU73YqMtLwWnB1fA8",
-    async:true,
+    type: "GET",
+    url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG",
+    async: true,
     dataType: "json",
     success: function(json) {
-          showAttraction(json);
-  		   },
+      showAttraction(json);
+    },
     error: function(xhr, status, err) {
-  			  console.log(err);
-  		   }
+      console.log(err);
+    }
   });
 }
 
 function showAttraction(json) {
   $('#events-panel').hide();
   $('#attraction-panel').show();
-  
+
   $('#attraction-panel').click(function() {
     getEvents(page);
   });
-  
+
   $('#attraction .list-group-item-heading').first().text(json.name);
-  $('#attraction img').first().attr('src',json.images[0].url);
+  $('#attraction img').first().attr('src', json.images[0].url);
   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
+  $('#url').text(json.pleaseNote);
 }
 
 $('#search_form').submit(function (evt) {

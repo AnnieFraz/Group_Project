@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var home = require('./routes/home')
 var events = require('./routes/events')
 var profile = require('./routes/profile')
+var updateProfile = require('./routes/updateProfile')
 
 var app = express();
 
@@ -30,6 +31,8 @@ app.use('/home', home);
 app.use('/events', events);
 app.use('/users', users);
 app.use('/profile', profile);
+app.use('/updateProfile', updateProfile)
+
 // app.get('/', function(req, res) {
 //     res.sendFile(path.join(__dirname + '/public/html/home.html'));
 // });

@@ -37,39 +37,11 @@ function makeApiRequest(sendBackResponseToBrowser) {
 
 
 /* GET home page. */
+
+
+
 router.get('/', function(req, res, next) {
-    async.parallel([
-    makeApiRequest,
-    ],
-    function(err, results) {
-        // var data = results[0];
-        //var result = results[1];
-        // console.log("async");
-        // console.log(data);
-        // console.log(results);
-        
-
-        res.render('events', { events : results[0]._embedded.events });
-    });
-//   var data;
-//   makeApiRequest(function(events) {
-//       data = events;
-      
-//   console.log("start: ");
-//   console.log(data);
-    //   res.render('profile', {title: process.env.TICKET_MASTER_API_KEY});
-    //  console.log("result"); 
-//   });
-//   res.render('events', { title: process.env.TICKET_MASTER_API_KEY });
-});
-
-router.get('/test', function(req, res, next) {
-    console.log('*********************here*****************');
-//   res.json( {
-//       msg: 'hello there',
-//      }); 
-//   res.render('profile');  
-res.render('profile');
+  res.render('events');
 });
 
 module.exports = router;
