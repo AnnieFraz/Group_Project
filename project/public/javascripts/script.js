@@ -1,7 +1,32 @@
 var page = 0;
 
+function updatePage() {
+      
+  $.ajax({
+    type:"GET",
+    url:'/test',
+    // async:true,
+    // dataType: "json",
+    success: function(json) {
+           console.log("weird");
+          console.log("json msg")
+          console.log(json);
+  		   },
+    error: function(xhr, status, err) {
+  			  console.log(err);
+  		   }
+  });
+}
+
 function getEvents(page) {
+  console.log("what is going on here");
+  //updatePage();
+  // var myVar = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
+  // console.log("here");
+  // console.log(myVar);
 //console.log("apikey: " + process.env.TICKET_MASTER_API_KEY);
+  // var res = JSON.parse("<%= JSON.stringify(data) %>");
+  // console.log(res);
   $('#events-panel').show();
   $('#attraction-panel').hide();
 

@@ -1,0 +1,34 @@
+	<title>EventFinder Login</title>
+        <img src="img/logo_FP.png" alt="Logo"/>
+
+        <form id="login-form" method="post" action="index.html">
+            <div class="box">
+                <h1>Event Finder Login</h1>
+                
+                <input type="email" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+                  
+                <input type="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+                
+                <br></br>
+                
+                <div class="social_login">
+        			<div class="">
+        				<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink" class="social_box fb">
+        						<span class="icon"><i class="fa fa-facebook"></i></span>
+        						<span class="icon_title">Connect with Facebook</span>
+        
+        				</a>
+        
+        				<a href="#" class="social_box google">
+        						<span class="icon"><i class="fa fa-google-plus"></i></span>
+        						<span class="icon_title">Connect with Google</span>
+        				</a>
+        	    	</div>
+          
+                    <a href="#"><div class="btn">Sign In</div></a> <!-- End Btn -->
+                    
+                    <a href="#"><div id="btn2">Sign Up</div></a> <!-- End Btn2 -->
+                  </div>
+                  <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
+            </div> <!-- End Box -->
+        </form>
