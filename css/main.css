@@ -1,108 +1,55 @@
-body, html {
-  height: 100%;
-}
-
-#container {
-  width: 100%;
-  margin: auto;
-  height: 100%;
-}
-
-.chat-box {
-  height: 100%;
-  background-color: #fff;
-  border-style: solid;
-  border-radius: 5px;
-}
-
-.chat-header {
-  height: 30px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #59ADEB;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #0074cc;
-}
-
-.chat-messages {
-  overflow: auto;
-  height: 100%;
-  padding: 0px;
-  background-image: url(https://sites.google.com/site/csitin3/_/rsrc/1343759392145/config/Otter.JPG);
-  background-repeat: no-repeat;
-  background-position: center;
-   border-style: solid;
-   border-radius: 5px;
-   border-width: 2px;
-  /*background-color: #F0F7FF;*/
-}
-
-.chat-message {
-  min-height: 21px;
-  padding-left: 10px;
-  margin: 3px;
-  font-family: serif;
-  border-bottom-style: solid;
-  border-width: 2px;
-  background-color: #e2e2e0;
-}
-.chat-message:hover{
-	background-color: #bdf6f9;
-	font-weight: bold;
-}
-
-.message-author,
-.message-time {
-  font-size: 15px;
-  color: #666;
-  float: left;
-  margin-right: 6px;
-}
-
-.message-content {
-  font-size: 15px;
-  color: #000;
-  display: inline-block;
-}
-
-.users-list {
-  height: 100%;
-  background-color: #eaf6ff;
-  color: #eee;
-  padding: 0px;
-  border-style: solid;
-   border-radius: 5px;
-   border-width: 2px;
-   border-color: black;
-  font-size: 20px;
-}
-
-.chat-user {
-  padding: 3px;
-  color: #111;
-  border-bottom-style: solid;
-  background-color: #7cd6b0;
-}
-
-.chat-content-wrapper {
-  height: -webkit-calc(100% - 64px);
-  height: -moz-calc(100% - 64px);
-  height: -ms-calc(100% - 64px);
-  height: calc(100% - 64px);
-  margin: 0px;
-}
-
-.reg-form-container {
-  width: 50%;
-  margin: auto;
-  padding-top: 10%;
-}
-
-.chat-no-messages {
-  padding: 10px;
-  color: #000;
-  font-size: 20px;
-}
+body {
+    font:12px arial;
+    color: #222;
+    text-align:center;
+    padding:35px; }
+  
+form, p, span {
+    margin:0;
+    padding:0; }
+  
+input { font:12px arial; }
+  
+a {
+    color:#0000FF;
+    text-decoration:none; }
+  
+    a:hover { text-decoration:underline; }
+  
+#wrapper, #loginform {
+    margin:0 auto;
+    padding-bottom:25px;
+    background:#EBF4FB;
+    width:504px;
+    border:1px solid #ACD8F0; }
+  
+#loginform { padding-top:18px; }
+  
+    #loginform p { margin: 5px; }
+  
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+  
+#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0; }
+  
+#submit { width: 60px; }
+  
+.error { color: #ff0000; }
+  
+#menu { padding:12.5px 25px 12.5px 25px; }
+  
+.welcome { float:left; }
+  
+.logout { float:right; }
+  
+.msgln { margin:0 0 2px 0; }
