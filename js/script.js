@@ -151,7 +151,7 @@ function showAttraction(json) {
   
   
 
-  $('#attraction card-title').first().text(json.name);
+  $('#attraction h3').first().text(json.name);
   $('#attraction img').first().attr('src', json.images[0].url);
   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
   $('#description'.text(json.description));
