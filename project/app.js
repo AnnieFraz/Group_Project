@@ -27,7 +27,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/events', events);
 // app.use('/users', users);
 app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/html/index.html'));
+});
+app.get('/events', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/html/events.html'));
+});
+app.get('/home', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/html/home.html'));
+});
+app.get('/profile', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/html/profile.html'));
 });
 
 // catch 404 and forward to error handler
