@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Event Finder</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="img/Logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <style>
+    #attraction-panel {
+      display: none;
+    }
+  </style>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="246480850653-20olgfmijst2977ju9feja8rjrsld8u6.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+  <!--beginning of navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Event Finder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://obscure-escarpment-49448.herokuapp.com/">Chat</a>
+        </li>
+      </ul>
+      <!--empty ul to offset ul container for login/logout button-->
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="login-btn" class="nav-link" href="index.html">
+            <button>Logout</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--end of navbar-->
+
+  <main role="main" class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+      <div class="col-12 col-md-9">
+        <p class="float-right d-md-none">
+          <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+        </p>
+        <div class="jumbotron">
+          <h1>Welcome to EventFinder!</h1>
+          <p> Welcome to EventFinder! The one stop for all events near you</p>
+        </div>
+        <div class="row">
+          <div class="col-6 col-lg-4">
+            <h2>Profile</h2>
+            <p>Have a secure profile where you can add events too and personalise them to your needs. </p>
+            <p><a class="btn btn-secondary" href="profile.html" role="button">View &raquo;</a></p>
+          </div>
+          <!--/span-->
+          <div class="col-6 col-lg-4">
+            <h2>Events</h2>
+            <p>All of your events in one place! Events from all over the countries and from many different sites are all here at your fingertips</p>
+            <p><a class="btn btn-secondary" href="events.html" role="button">View &raquo;</a></p>
+          </div>
+          <!--/span-->
+          <div class="col-6 col-lg-4">
+            <h2>Zip Code</h2>
+            <p>Search for events in your local area using zip code as well as other features. </p>
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </div>
+      <!--/span-->
+
+      <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+        <div class="list-group">
+          <div w-type="map" w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG" w-googleapikey="246480850653-20olgfmijst2977ju9feja8rjrsld8u6" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="1" w-borderradius="4" w-postalcode="94108" w-radius="30" w-countrycode="US" w-city="" w-period="day" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="" w-latlong=""></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIPAhkpV21XuPwUIDzmu24snaQCZa38UE&libraries=visualization,places" async defer></script>
+<script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script></div>
+        </div>
+      </div>
+      <!--/span-->
+    </div>
+    <!--/row-->
+
+    <hr>
+    <footer class="container">
+      <p>&copy; EventFinder 2017</p>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
