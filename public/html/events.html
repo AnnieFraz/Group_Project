@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Event Finder</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="img/Logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    #attraction-panel {
+      display: none;
+    }
+    img.card-img-top {
+        /*height: 50%;*/
+        width: 60%;
+    }
+  </style>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+
+<!--beginning of navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Event Finder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://obscure-escarpment-49448.herokuapp.com/">Chat</a>
+        </li>
+        
+        <form id="search_form" class="form-inline my-2 my-lg-0">
+          <input id="search_input" class="form-control mr-sm-2" type="text" placeholder="Search">
+          <select id="search_filter">
+            <option value="keyword">by keyword</option>
+            <option value="city">by city</option>
+            <option value="postalcode">by postalcode</option>
+          </select>
+          <button style="margin-left: 10px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </ul>
+      <!--empty ul to offset ul container for login/logout button-->
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="login-btn" class="nav-link" href="index.html">
+            <button>Logout</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--end of navbar-->
+
+  <div id='events-panel'>
+    <div class="jumbotron">
+      <h2 class="panel-title">Check out events below!</h2>
+      <p class="lead">From here you'll be able to see various events!</p>
+      <hr class="my-4">
+      <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
+      <!--<p class="lead">-->
+      <!--  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+      <!--</p>-->
+    </div>
+    <div>
+      <nav>
+        <ul class="nav nav-pills justify-content-center">
+          <li id="prev" class="nav-item"><a href="#" class="nav-link"><span aria-hidden="true">&larr;</span>  Previous</a></li>
+          <li id="next" class="nav-item"><a href="#" class="nav-link">Next  <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="events" class="list-group">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="start-time"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+     </a>
+     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">Event title</h4>
+        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="venue"></p>
+        <p class="min_price">min price</p>
+        <p class="max_price">max price</p>
+        <button id="" type="button" class="btn btn-success">Click for more info!</button>
+      </a>
+    </div>
+  </div>
+
+  <div id="attraction-panel" class="card">
+    <div id="attraction" class="card-body card text-center">
+      <h3 id="event-title" class="event-title">Event Title</h3>
+      <p id="classification"></p>
+      <p id="places"></p><center>
+      <img class="card-img-top" src="" width="300" align="middle"></center>
+    </div>
+    <div class="card-body card text-center">
+      <div style="display:inline">
+      <button id="card-go-back" type="button" class="btn btn-success">Click to go Back!</button>
+      <button id="tm-purchase" type="button" class="btn btn-success">Click to Purchase Tickets!</button>
+      <button name="add-events-profile" id="add-events-profile" type="button" class="btn btn-success">Click to Add Event to Profile!</button>
+      </div>
+      <!--<div name="alert-profile" id="alert-profile" class="alert alert-success" role="alert">-->
+      <!--  This is a success alert—check it out!-->
+      <!--</div>-->
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="/javascripts/script.js"></script>
+      <hr>
+    <footer class="container">
+      <p>&copy; EventFinder 2017</p>
+    </footer>
+</body>
+
+</html>
