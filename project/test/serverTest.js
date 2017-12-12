@@ -1,3 +1,4 @@
+//Testing the server - once set up
 var express = require('express'); // (npm install --save express)
 var request = require('supertest');
 
