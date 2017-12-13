@@ -7,4 +7,17 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/events', function(req, res) {
+    res.render('events');
+});
+
+router.get('/profile', function(req, res) {
+    res.render('profile');
+});
+
+router.get('/home', function(req, res) {
+    res.render('home');
+});
+
+
 module.exports = router;
