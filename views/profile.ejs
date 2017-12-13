@@ -84,13 +84,11 @@
   <center>
     <div class="card">
       <br>
-      <h1>EventFinder Profile</h1>
+      <h1>Event Finder Profile</h1>
       <center>
-        <img src="https://image.ibb.co/btRVZb/IMG_20170904_205707_254.jpg" alt="Profile Pic" id="profilePic">
+        <img src="" alt="No Picture Available" id="profilePic">
       </center>
-      <h1 id="user_name">Andrew</h1>
-      <p id="">10th, May 1990</p>
-      <p>Hollister, CA</p>
+      <h3 id="user_name">Andrew</h1>
       <br>
 
       <a href="#" style="color:black; font-size:10px;"><i class="fa fa-twitter"></i></a>
@@ -144,12 +142,14 @@
         console.log("undefined");
         document.getElementById("login-btn").innerText = "Login";
         document.getElementById("user_name").innerHTML = "Please Login";
+        document.getElementById("profilePic").src = "";
       } else {
         user_info = JSON.parse(user_info);
         console.log(user_info);
         console.log(user_info.first_name);
         document.getElementById("login-btn").innerText = "Logout";
         document.getElementById("user_name").innerHTML = user_info.first_name + " " + user_info.last_name;
+        document.getElementById("profilePic").src = user_info.picture.data.url;
       }
       
       $("#login-link").click(function() {
