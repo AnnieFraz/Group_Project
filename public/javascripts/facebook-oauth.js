@@ -13,7 +13,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             //display user data
-            getFbUserData();
+           // getFbUserData();
         }
     });
 };
@@ -27,13 +27,16 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+
+$("")
+
 // Facebook login with JavaScript SDK
 function fbLogin() {
     FB.login(function (response) {
         if (response.authResponse) {
             // Get and display the user profile data
-            console.log(response);
             getFbUserData();
+            
         } else {
             //document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
         }
@@ -41,16 +44,21 @@ function fbLogin() {
 }
 
 // // Fetch the user profile data from facebook
-function getFbUserData(){
+function getFbUserData() {
     FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
     function (response) {
-        //document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
-       // document.getElementById('fbLink').getElementsByClassName('icon_title')[0].innerHTML = 'Logout from Facebook';
-       /* document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
-        document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
-        document.getElementById('login-form').style.display = "none";
-        document.getElementById('logout-div').style.display = "block";
-        */
+        console.log(response);
+        $.ajax({
+            url: '/handle_login',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(response),
+            success: function (data) {
+                console.log('yaas');
+                //location.reload();
+            }
+        });
+        location.href = '/events';
     });
 }
 
@@ -66,3 +74,4 @@ function fbLogout() {
         */
     });
 }
+
