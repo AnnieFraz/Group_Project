@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var events = require('./routes/events');
+// var users = require('./routes/users');
+// var events = require('./routes/events');
 
 var app = express();
 
@@ -23,21 +23,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', index);
+app.use('/', index);
 // app.use('/events', events);
 // app.use('/users', users);
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/html/index.html'));
 });
-app.get('/events', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/html/events.html'));
-});
-app.get('/home', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/html/home.html'));
-});
-app.get('/profile', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/html/profile.html'));
-});
+// app.get('/events', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/public/html/events.html'));
+// });
+// app.get('/home', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/public/html/home.html'));
+// });
+// app.get('/profile', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/public/html/profile.html'));
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
