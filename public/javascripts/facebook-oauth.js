@@ -54,24 +54,20 @@ function getFbUserData() {
             contentType: 'application/json',
             data: JSON.stringify(response),
             success: function (data) {
-                console.log('yaas');
                 //location.reload();
             }
         });
-        location.href = '/events';
+        window.localStorage.setItem("login_info", JSON.stringify(response));
+        location.href = '/home';
     });
 }
 
 // // Logout from facebook
 function fbLogout() {
     FB.logout(function() {
-        //document.getElementById('logout-btn').setAttribute("onclick","fbLogin()");
-        //document.getElementById('logout-btn').getElementsByClassName('icon_title')[0].innerHTML = 'Connect with Facebook';
-       /* document.getElementById('userData').innerHTML = '';
-        document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
-        document.getElementById('login-form').style.display = "block";
-        document.getElementById('logout-div').style.display = "none";
-        */
+        window.localStorage.setItem("login_info", undefined);
+        console.log("logout: " + window.localStorage.getItem("login_info"));
+        location.href = "/";
     });
 }
 

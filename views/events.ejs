@@ -24,7 +24,16 @@
 </head>
 
 <body>
-
+<script>
+  // var user_info = window.localStorage.getItem("login_info");
+  // if (user_info === "undefined") {
+  //   console.log("undefined");
+  // } else {
+  //   console.log("has info");
+  //   console.log(user_info);
+  // }
+  // // console.log(data);
+</script>
 <!--beginning of navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Event Finder</a>
@@ -61,8 +70,8 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a id="login-btn" class="nav-link" href="index.html">
-            <button>Logout</button>
+          <a id="login-link" class="nav-link">
+            <button id="login-btn">Login</button>
           </a>
         </li>
       </ul>
@@ -181,10 +190,34 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="/javascripts/script.js"></script>
+  <!--Facebook Login Setup Script-->
+  <script type="text/javascript" src="/javascripts/facebook-oauth.js"></script>
       <hr>
     <footer class="container">
       <p>&copy; EventFinder 2017</p>
     </footer>
+    
+    <script>
+      var user_info = window.localStorage.getItem("login_info");
+      if (user_info === "undefined") {
+        console.log("undefined");
+        document.getElementById("login-btn").innerText = "Login";
+      } else {
+        user_info = JSON.parse(user_info);
+        console.log(user_info);
+        document.getElementById("login-btn").innerText = "Logout";
+        console.log("after");
+      }
+      
+      $("#login-link").click(function() {
+        console.log('click');
+        if (user_info === "undefined") {
+          location.href = "/";
+        } else {
+          fbLogout();
+        }
+      });
+    </script>
 </body>
 
 </html>
