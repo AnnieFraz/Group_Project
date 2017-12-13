@@ -1,10 +1,10 @@
 {
-  "name": "final",
+  "name": "project438",
   "version": "1.0.0",
   "description": "Final Project",
-  "main": "hello_world.js",
-  "directories": {
-    "test": "test"
+  "main": "app.js",
+   "scripts": {
+    "start" : "node app.js"
   },
   "dependencies": {
     "mongodb": "^2.2.33",
