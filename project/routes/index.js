@@ -1,3 +1,4 @@
+//Setting up express and a router.
 var express = require('express');
 var router = express.Router();
 

@@ -1,7 +1,9 @@
 var page = 0;
 
+//This function get events from a certain page of th ticketmaster website
 function getEvents(page) {
 
+//Displaying the information
   $('#events-panel').show();
   $('#attraction-panel').hide();
 
@@ -10,12 +12,13 @@ function getEvents(page) {
     return;
   }
   if (page > 0) {
+    //Data stored as a json
     if (page > getEvents.json.page.totalPages - 1) {
       page = 0;
       return;
     }
   }
-
+//Getting the json and displaying it
   $.ajax({
     type: "GET",
     url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=8&page=" + page,
@@ -31,10 +34,12 @@ function getEvents(page) {
   });
 }
 
+//Function for the user to find a certain event
 function searchEvents(searchFilter, searchCriteria) {
   $('#events-panel').show();
   $('#attraction-panel').hide();
   
+  //Getting the date
   let date = new Date();
   let dd = date.getDate();
   let mm = date.getMonth() + 1;
@@ -60,6 +65,7 @@ function searchEvents(searchFilter, searchCriteria) {
       return;
     }
   }
+  //Displaying the new results after the search 
     $.ajax({
     type:"GET",
     url:"https://app.ticketmaster.com/discovery/v2/events.json?" + searchFilter + "=" + searchCriteria + "&startDateTime=" + today + "&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
@@ -75,6 +81,7 @@ function searchEvents(searchFilter, searchCriteria) {
   });
 }
 
+//Displaying the array 
 function showEvents(json) {
   var items = $('#events .list-group-item');
   items.hide();
@@ -106,6 +113,7 @@ function showEvents(json) {
   }
 }
 
+//So you can look through events
 $('#prev').click(function() {
   getEvents(--page);
 });
@@ -114,6 +122,7 @@ $('#next').click(function() {
   getEvents(++page);
 });
 
+//Acquiring the information about a single event
 function getAttraction(id) {
   $.ajax({
     type: "GET",
@@ -129,6 +138,7 @@ function getAttraction(id) {
   });
 }
 
+//Displays information about a single event when clicked
 function showAttraction(json) {
   $('#events-panel').hide();
   $('#attraction-panel').show();
@@ -157,7 +167,7 @@ function showAttraction(json) {
   $('#description'.text(json.description));
 }
 
-
+//The search bar
 $('#search_form').submit(function (evt) {
     evt.preventDefault();
     let searchFilter = $("#search_filter").val();
@@ -169,5 +179,5 @@ $('#search_form').submit(function (evt) {
   
 });
 
-
+//calling the function
 getEvents(page);

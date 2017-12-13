@@ -58,3 +58,8 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+// tar -zxvf mongodb-linux-x86_64-ubuntu1404-3.4.10.tgz
+
+// cp -R -n mongodb-linux-x86_64-ubuntu1404-3.4.10 mongodb
