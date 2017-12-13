@@ -27,6 +27,9 @@
     </style>
     </head>
   <body>
+    
+    
+    
     <!--beginning of navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Event Finder</a>
@@ -88,9 +91,8 @@
   
   <img src="img/avatarProfile.png" alt="Profile Pic" id="profilePic" >
   </center>
-  <h1>Anna</h1>
-  <p>22nd June 1997</p>
-  <p>Seaside, CA, USA</p>
+  <h1 id="user_name">blank</h1>
+  <p id="user_email">blank</p>
   <br>
  
  <a href="#" style="color:black; font-size:10px;"><i class="fa fa-twitter"></i></a>
@@ -108,6 +110,23 @@
 
 </center>
 
-
+<script>
+      console.log("Receiving data now");
+      var user = window.localStorage.getItem("user");
+      console.log(user);
+      
+     if (user === "null") {
+       document.getElementById('login-btn').innerHTML = 'login';
+       document.getElementById('profilePic').src = 'img/avatarProfile.png'
+       document.getElementById('user_name').innerHTML = 'Not signed in';
+       document.getElementById('user_email').innerHTML = 'Please sign in';
+     } else {
+       user = JSON.parse(user);
+       document.getElementById('login-btn').innerHTML = 'Logout';
+       document.getElementById('profilePic').src = user.picture.data.url;
+       document.getElementById('user_name').innerHTML = user.first_name + " " + user.last_name;
+       document.getElementById('user_email').innerHTML = user.email;
+     }
+    </script>
 </body>
 </html>

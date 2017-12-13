@@ -7,22 +7,74 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="img/Logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Latest compiled and minified CSS -->
+     <!--Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <style>
-      #attraction-panel {
-        display:none;
-      }
-    </style>
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="css/events_styles.css" type="text/css" />
+        
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="246480850653-20olgfmijst2977ju9feja8rjrsld8u6.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    
   </head>
 
   <body>
+
+<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<img class="img-circle" id="img_logo" src="logo.png">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+                
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+                
+                      <form method="post" action="index.html">
+                        <h1>Event Finder Login</h1>
+                        <br></br>
+                        <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>
+                        <br></br>
+                        <center>
+                            <div class="social_login">
+                            	<div class="">
+                                	<a id="fb_btn" class="social_box fb" data-dismiss="modal">
+                                			<span class="icon"><i class="fa fa-facebook"></i></span>
+                                			<span class="icon_title"style="text-align: center">Connect with Facebook</span>
+                                	</a>
+                                </div>
+                            </div>
+                        </center>
+                        
+                    </form>
+                    <!-- End # Login Form -->
+                    
+                </div>
+            </div>
+          </div>
+        </div>
+                
+                
+                
+                
     <!--start of navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Event Finder</a>
@@ -59,7 +111,8 @@
         
         <ul class="navbar-nav">
         <li class="nav-item">
-          <a id="login-btn" class="nav-link" href="index.html"><button>Login</button></a>
+          <a id="login-btn" class="nav-link btn" href="index.html" data-toggle="modal" data-target="#login-modal"><button>Login</button></a>
+          <a id="logout-btn" class="nav-link btn" href="#" style="display: none"><button>Logout</button></a>
         </li>
       </ul>
       </div>
@@ -147,13 +200,178 @@
             <a href="" id="url">click here for tickets!</a>
           </div>
         </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
+     <!--Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script src="js/script.js"></script>
+    
+    <script>
+                  $(function() {
+                    
+                    
+                    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1558967270863768',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+    // Check whether the user already logged in
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            //display user data
+            //getFbUserData();
+        }
+    });
+};
+
+// Load the JavaScript SDK asynchronously
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+// Facebook login with JavaScript SDK
+$("#fb_btn").click(function () {
+
+    FB.login(function (response) {
+        if (response.authResponse) {
+            // Get and display the user profile data
+            getFbUserData();
+            document.getElementById('login-btn').style.display = 'none';
+            document.getElementById('logout-btn').style.display = 'inline';
+        } else {
+            // document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+            console.log('user cancelled login')
+        }
+    }, {scope: 'email'});
+    
+});
+
+$("#logout-btn").click(function () {
+    FB.logout(function() {
+        alert('Logged out successfully');
+        window.localStorage.setItem("user", null);
+        document.getElementById('login-btn').style.display = 'inline';
+        document.getElementById('logout-btn').style.display = 'none';
+        // document.getElementById("fb_btn").setAttribute("onclick","fbLogin()");
+        //document.getElementById('logout-btn').getElementsByClassName('icon_title')[0].innerHTML = 'Connect with Facebook';
+        // document.getElementById('userData').innerHTML = '';
+        // document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+        // document.getElementById('login-form').style.display = "block";
+        // document.getElementById('logout-div').style.display = "none";
+    });
+});
+
+// // Fetch the user profile data from facebook
+function getFbUserData(){
+    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+    function (response) {
+        // document.getElementById('fb_btn').setAttribute("onclick","fbLogout()");
+       // document.getElementById('fbLink').getElementsByClassName('icon_title')[0].innerHTML = 'Logout from Facebook';
+       console.log(response);
+       
+        console.log("passing data now");
+        window.localStorage.setItem("user", JSON.stringify(response));
+        // document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.first_name + '!';
+        // document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+ response.id+'</p><p><b>Name:</b> '+ response.first_name+' '+ response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
+        // document.getElementById('login-form').style.display = "none";
+        // document.getElementById('logout-div').style.display = "block";
+    });
+}
+
+// Logout from facebook
+   function fbLogout() {
+    FB.logout(function() {
+        alert('Logged out successfully');
+        window.localStorage.setItem("user", null);
+        document.getElementById('login-btn').style.display = 'inline';
+        document.getElementById('logout-btn').style.display = 'none';
+        // document.getElementById("fb_btn").setAttribute("onclick","fbLogin()");
+        //document.getElementById('logout-btn').getElementsByClassName('icon_title')[0].innerHTML = 'Connect with Facebook';
+        // document.getElementById('userData').innerHTML = '';
+        // document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+        // document.getElementById('login-form').style.display = "block";
+        // document.getElementById('logout-div').style.display = "none";
+    });
+}       
+                    
+                    
+    
+    var $formLogin = $('#login-form');
+    var $divForms = $('#div-forms');
+    var $modalAnimateTime = 300;
+    var $msgAnimateTime = 150;
+    var $msgShowTime = 2000;
+
+    // $("form").submit(function () {
+    //     switch(this.id) {
+    //         case "login-form":
+    //             var $lg_username=$('#login_username').val();
+    //             var $lg_password=$('#login_password').val();
+    //             if ($lg_username == "ERROR") {
+    //                 msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Login error");
+    //             } else {
+    //                 msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
+    //             }
+    //             return false;
+    //             break;
+    //         default:
+    //             return false;
+    //     }
+    //     return false;
+    // });
+    
+    // $('#login_register_btn').click( function () { modalAnimate($formLogin, $formRegister) });
+    // $('#register_login_btn').click( function () { modalAnimate($formRegister, $formLogin); });
+    // $('#login_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });
+    // $('#lost_login_btn').click( function () { modalAnimate($formLost, $formLogin); });
+    // $('#lost_register_btn').click( function () { modalAnimate($formLost, $formRegister); });
+    // $('#register_lost_btn').click( function () { modalAnimate($formRegister, $formLost); });
+    
+    function modalAnimate ($oldForm, $newForm) {
+        var $oldH = $oldForm.height();
+        var $newH = $newForm.height();
+        $divForms.css("height",$oldH);
+        $oldForm.fadeToggle($modalAnimateTime, function(){
+            $divForms.animate({height: $newH}, $modalAnimateTime, function(){
+                $newForm.fadeToggle($modalAnimateTime);
+            });
+        });
+    }
+    
+    function msgFade ($msgId, $msgText) {
+        $msgId.fadeOut($msgAnimateTime, function() {
+            $(this).text($msgText).fadeIn($msgAnimateTime);
+        });
+    }
+    
+    function msgChange($divTag, $iconTag, $textTag, $divClass, $iconClass, $msgText) {
+        var $msgOld = $divTag.text();
+        msgFade($textTag, $msgText);
+        $divTag.addClass($divClass);
+        $iconTag.removeClass("glyphicon-chevron-right");
+        $iconTag.addClass($iconClass + " " + $divClass);
+        setTimeout(function() {
+            msgFade($textTag, $msgOld);
+            $divTag.removeClass($divClass);
+            $iconTag.addClass("glyphicon-chevron-right");
+            $iconTag.removeClass($iconClass + " " + $divClass);
+  		}, $msgShowTime);
+    }
+    
+    
+});
+      
+        window.localStorage.setItem("user", null);
+
+                </script>
   </body>
 
 </html>
