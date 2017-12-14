@@ -234,15 +234,6 @@
           event_img: $("#event-img").attr("src")
         };
         console.log(event_data);
-        // $.ajax({
-        //     url: '/handle_login',
-        //     method: 'POST',
-        //     contentType: 'application/json',
-        //     data: JSON.stringify(event_data),
-        //     success: function (data) {
-        //         //location.reload();
-        //     }
-        // });
         $.ajax({
             url: '/save_event',
             method: 'POST',

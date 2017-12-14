@@ -75,35 +75,22 @@ router.post('/save_event', function(req, res, next) {
 
 router.get('/fetch_saved_events', function(req, res, next) {
     console.log('fetching events');
+    var id = req.query.id;
+    // console.log(req.query.id);
     var resultArray = [];
     mongo.connect(url, function(err, db) {
         assert.equal(null, err);
-        var cursor = db.collection('savedEvents').find();
+        var cursor = db.collection('savedEvents').find({user_id : id});
         cursor.forEach(function(doc, err) {
             assert.equal(null, err);
             resultArray.push(doc);
         }, function() {
             db.close();
-            console.log(resultArray);
+            //console.log(resultArray);
             console.log('fin fetching ...');
             res.render('profile', {saved_events: resultArray});
         });
     });
-    // console.log('fetching events');
-    // var resultArray = [];
-    // mongo.connect(url, function(err, db) {
-    // assert.equal(null, err);
-    // var cursor = db.collection('savedEvents').find();
-    // cursor.forEach(function(doc, err) {
-    //   assert.equal(null, err);
-    //   resultArray.push(doc);
-    // }, function() {
-    //   db.close();
-    //   console.log(resultArray);
-    //   console.log('fin fetching ...');
-    //   res.render('profile', {saved_events: resultArray});
-    // });
-//   });
 });
 
 
