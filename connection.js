@@ -8,7 +8,8 @@ var MongoClient = mongodb.MongoClient;
 
 //(Focus on This Variable)
 //var url = 'mongodb://localhost:27017/name_picker';  
-var url = 'mongodb://heroku_65bffdk0:Sax0ph0ne@ds137336.mlab.com:37336/heroku_65bffdk0/name_picker'
+var url = 'mongodb://heroku_65bffdk0:eventFinder1@ds137336.mlab.com:37336/heroku_65bffdk0'
+// var url = 'mongodb://heroku_65bffdk0:Sax0ph0ne@ds137336.mlab.com:37336/heroku_65bffdk0/name_picker'
 //(Focus on This Variable)
 
 // Use connect method to connect to the Server
