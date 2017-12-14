@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" href="img/Logo.png" type="image/png">
+  <link rel="shortcut icon" href="/img/Logo.png" type="image/png">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css" type="text/css" />
   <meta name="google-signin-scope" content="profile email">
@@ -21,7 +21,7 @@
 }
 body{
   font-family: 'Open Sans', sans-serif;
-  background:white;
+  background: url("/img/lights.jpg");
   margin: 0 auto 0 auto;  
   width:100%; 
   text-align:center;
@@ -29,23 +29,28 @@ body{
 }
 
 p{
-  font-size:12px;
+  font-size:14px;
   text-decoration: none;
-  color:#ffffff;
+  color:Red;
 }
 
 h1{
   font-size:1.5em;
-  color:Black;
+  text-shadow: 2px 2px #ff0000;
+  color:Red;
 }
 
 .box{
-  background:grey;
+  background:url("/img/Logo.png");
   width:300px;
   border-radius:6px;
   margin: 0 auto 0 auto;
   padding:0px 0px 70px 0px;
-  border: black 4px solid; 
+  border: black 4px solid; position:absolute;
+  top:40%;
+  left:50%;
+  margin-top:-40px; /* this is half the height of your div*/  
+  margin-left:-90px;
 }
 
 .email{
@@ -178,19 +183,13 @@ background:#D8D8D8;
 
 <body>
   <title>EventFinder Login</title>
-  <img src="img/Logo.png" alt="Logo" />
+  <!--<img src="/img/Logo.png" alt="Logo" />-->
 
   <form method="post" action="index.html">
     <div class="box">
       <h1>Event Finder Login</h1>
 
-      <!-- onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');"
-onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" -->
-<!--<META http-equiv="refresh" content="10" URL="home1.html">-->
-      <input type="email" name="email" value="email" class="email" />
-      <br>
-      <input type="password" name="password" value="password" class="password" />
-      <br></br>
+      
       <center>
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </center>
@@ -204,16 +203,6 @@ onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" -->
           </a>
 
         </div>
-
-        <a href="home1.html">
-          <div class="btn">Sign In</div>
-        </a>
-        <!-- End Btn -->
-
-        <a href="addProfile.html">
-          <div id="btn2">Sign Up</div>
-        </a>
-        <!-- End Btn2 -->
 
 
         <script>
@@ -234,7 +223,6 @@ onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" -->
             window.location.href = 'home1.html';
           };
         </script>
-        <p>Forgot your password? <u style="color:red;">Click Here!</u>
     <br>
     <br>
     <a href="/events" u style="color:red">Skip</a>
