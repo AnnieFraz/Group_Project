@@ -24,8 +24,9 @@
   */
 var isEqual = function (value, other) {
 
-    // Get the value type
-    var type = Object.prototype.toString.call(value);
+var index = require('./routes/index');
+var users = require('./routes/users');
+var events = require('./routes/events');
 
     // If the two objects are not the same type, return false
     if (type !== Object.prototype.toString.call(other)) return false;
@@ -61,11 +62,8 @@ var isEqual = function (value, other) {
     return true;
 
 };
-var lastUser_id = 0;
-  
+
 var insertUserAPI = function(firstName,lastName,emailNew,image) {
-  let validEmail =false;
-  var notFound = '';
   var MongoClient = require('mongodb').MongoClient, assert = require('assert');
   // Connection URL
   var url = 'mongodb://localhost:27017/name_picker';
@@ -77,44 +75,22 @@ var insertUserAPI = function(firstName,lastName,emailNew,image) {
   //finding duplicate emails
   collectionSearch.find({email: emailNew}).toArray(function(err,items){
       console.log(items + "   : email Search");
-      if(items == notFound){
+      if(items == ''){
         console.log("Valid Email");
-        validEmail = true
-        console.log(validEmail);
+        var id= Math.floor(Math.random() * 100000) + 1;
+        id = id.toString();
+        console.log(id);
+        var pasta = db.collection('users');
+        pasta.insert({  user_id: id, first_name: firstName, last_name: lastName, 
+          password: "Password123", email: emailNew, city: "Set Your City", 
+          picture_url: image}).catch(function () {
+            console.log("Promise Rejected");
+          });
       }
       else{
         console.log("Invalid Email");
       }
-      console.log(lastUser_id);
-      console.log("validEmail: " + validEmail);
-      if(validEmail==false){
-        db.close();
-        return;
-      }
   });
-  //finding the right user_id to assign
-  collectionSearch.find({user_id: toString(lastUser_id)}).toArray(function(err,items){
-  while(items != notFound && lastUser_id <50) {
-    lastUser_id += 1;
-    items = collectionSearch.find({user_id: toString(lastUser_id)}).toArray(function(err,items){
-      console.log("Last user id loop");
-      });
-      console.log(lastUser_id + "-----" + items);
-  }
-  });
-  var collection = db.collection('users');
-  // Insert some documents
-  /*
-  collection.insert({  user_id: toString(lastUser_id), first_name: firstName, last_name: lastName, 
-    password: "Password123", email: emailNew, city: "Set Your City", 
-    picture_url: image}, function(err, result) {
-    assert.equal(err, null);
-    var userID = collectionSearch.user_id;
-    console.log("Inserted"+collectionSearch.first_name);
-    db.close();
-    return userID;
-    });
-    */
     db.close();
     return;
   });
@@ -123,7 +99,7 @@ var insertUserAPI = function(firstName,lastName,emailNew,image) {
 
 
 //function to add events into the database
-var insertEvent = function(eventName, eventTime, eventDate, image, eventLocation, eventZip) {
+var insertEvent = function(eventName, eventTime, eventDate, image, eventLocation, eventZip, event_id) {
   var lastEvent_id = 0;
   var MongoClient = require('mongodb').MongoClient, assert = require('assert');
   // Connection URL
@@ -201,11 +177,11 @@ var findUser = function(userID) {
     console.log(items);
     if (items == notFound)
   {
-    console.log("User does not exist.      " + items)
+    console.log("User does not exist.      " + items);
   }
   else
   {
-    console.log("Found the following records "+items.name);
+    console.log("Found the following records "+ JSON.stringify(items));
      return items;
   }
   });
@@ -216,7 +192,8 @@ var findUser = function(userID) {
     
   });
 }
-findUser('3');
+
+findUser('4');
 insertUserAPI('Chad','Beta','iamChadbeta@gmail.com','https://ichef-1.bbci.co.uk/news/624/cpsprodpb/4F6B/production/_87513302_chad_habre_g.jpg');
 console.log("tests finished");
 
@@ -275,9 +252,61 @@ MongoClient.connect(url, function(err, db) {
     id: " ",
     time: " ", date: " ",
     picture_url: " ",
-    location: " ", zip: " ",
+    location: " ", zip: " ",});
+    
+    use name_picker;
+    db.createCollection('users');
+    db.createCollection('events');
+    db.createCollection('savedEvents');
+    db.users.insert({ 
+      user_id: "1", first_name: "Tim", last_name: "Allen", 
+      password: "nope", email: "timtoolman@gmail.com", city: "New York", 
+      picture_url: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTI5ODY0NTAwOF5BMl5BanBnXkFtZTcwOTI3NjQxMw@@._V1_UX214_CR0,0,214,317_AL_.jpg",
+      google: '', facebook: '', standard: '' 
+    });
+    db.events.insert({
+      name: "Underground Clawfish Fight", id: "1",
+      time: "11:00(PM)", date: "12/27/2017",
+      picture_url: "https://vignette.wikia.nocookie.net/starwars/images/e/e2/Clawfish.jpg/revision/latest?cb=20110303190054",
+      location: "Behind the Otter Express, CSUMB", zip: "93933"});
+
+     db.savedEvents.insert({
+      user_id: "1", name: "Underground Clawfish Fight", 
+      id: "1",
+      time: "11:00(PM)", date: "12/27/2017",
+      picture_url: "https://vignette.wikia.nocookie.net/starwars/images/e/e2/Clawfish.jpg/revision/latest?cb=20110303190054",
+      location: "Behind the Otter Express, CSUMB", zip: "93933"});
+  */
+var MongoClient = require('mongodb').MongoClient, assert = require('assert');
+function connectToDB(callback) {
+  MongoClient.connect("mongodb://localhost:27017/name_picker", function(err, db) {
+      if(err) {
+        console.log("Could not connect to MongoDB");
+        return callback(err, null); 
+      }
+      
+      callback(null, db); 
+  }); 
+}
+
+function fetchUser(db, callback) {
+    var collection = db.collection('students');
+  
+    collection.find({email: userEmail}).toArray(function(err, items) {
+        if (err) {
+            return callback(err, null); 
+        } 
+        
+        callback(null, items); 
     });
 }
-*/
-
-
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    async.waterfall([
+        connectToDB,
+        fetchUser
+    ], function (err, students) {
+        console.log(students); 
+        res.render('index', { title: 'Students', students: students });
+    });
+});
