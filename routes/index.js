@@ -24,19 +24,19 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/events', function(req, res) {
+router.get('/events', function(req, res, next) {
     res.render('events');
 });
 
-router.get('/profile', function(req, res) {
-    res.render('profile');
+router.get('/profile', function(req, res, next) {
+    res.render('profile', {savedEvents: undefined});
 });
 
-router.get('/home', function(req, res) {
+router.get('/home', function(req, res, next) {
     res.render('home');
 });
 
-router.post('/handle_login', function(req, res) {
+router.post('/handle_login', function(req, res, next) {
    console.log('it worked'); 
 
    var item = {
@@ -49,6 +49,61 @@ router.post('/handle_login', function(req, res) {
        picture_url: req.body.picture.data.url
    }
    
+});
+
+router.post('/save_event', function(req, res, next) {
+    console.log('save events!'); 
+    var event = {
+      user_id: req.body.user_id,
+      event_title: req.body.event_title,
+      event_class: req.body.event_class,
+      event_img: req.body.event_img
+    };
+    
+    mongo.connect(url, function(err, db) {
+        assert.equal(null, err);
+        db.collection('savedEvents').insertOne(event, function(err, result) {
+            assert.equal(null, err);
+            console.log('event saved');
+            db.close();
+        })
+    });
+    
+    console.log("finish!!!!!");
+    
+});
+
+router.get('/fetch_saved_events', function(req, res, next) {
+    console.log('fetching events');
+    var resultArray = [];
+    mongo.connect(url, function(err, db) {
+        assert.equal(null, err);
+        var cursor = db.collection('savedEvents').find();
+        cursor.forEach(function(doc, err) {
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function() {
+            db.close();
+            console.log(resultArray);
+            console.log('fin fetching ...');
+            res.render('profile', {saved_events: resultArray});
+        });
+    });
+    // console.log('fetching events');
+    // var resultArray = [];
+    // mongo.connect(url, function(err, db) {
+    // assert.equal(null, err);
+    // var cursor = db.collection('savedEvents').find();
+    // cursor.forEach(function(doc, err) {
+    //   assert.equal(null, err);
+    //   resultArray.push(doc);
+    // }, function() {
+    //   db.close();
+    //   console.log(resultArray);
+    //   console.log('fin fetching ...');
+    //   res.render('profile', {saved_events: resultArray});
+    // });
+//   });
 });
 
 

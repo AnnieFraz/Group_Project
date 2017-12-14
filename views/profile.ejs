@@ -117,6 +117,24 @@
 <!--</div>  -->
 </div>
 <br><br>
+
+<script>
+  var events;
+<% if (typeof saved_events !== 'undefined' && saved_events.length > 0) { %>
+    events = <%-JSON.stringify(saved_events); %>
+    <% } else { %>
+    <% console.log("byeeee") %>
+    <% } %>
+    console.log(events);
+</script>
+
+<div style="text-align: left; margin-left: 10%; margin-top: 5%; margin-bottom: 5%;">
+    <h4>Saved Events</h4>
+</div>
+<div>
+    <a href="/fetch_saved_events"><button id="show-btn">Show Saved Events</button></a>
+</div>
+
 <div class="card">
       
 

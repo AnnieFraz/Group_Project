@@ -171,7 +171,7 @@
       <h3 id="event-title" class="event-title">Event Title</h3>
       <p id="classification"></p>
       <p id="places"></p><center>
-      <img class="card-img-top" src="" width="300" align="middle"></center>
+      <img id="event-img" class="card-img-top" src="" width="300" align="middle"></center>
     </div>
     <div class="card-body card text-center">
       <div style="display:inline">
@@ -216,6 +216,49 @@
         } else {
           fbLogout();
         }
+      });
+    </script>
+    
+    <script>
+      $("#add-events-profile").click(function() {
+        
+        if (user_info === "undefined") {
+          console.log("undefined");
+          alert("Please sign in to save events to your profile.");
+          return;
+        }
+        var event_data = {
+          user_id: user_info.id,
+          event_title: $("#event-title").text(),
+          event_class: $("#classification").text(),
+          event_img: $("#event-img").attr("src")
+        };
+        console.log(event_data);
+        // $.ajax({
+        //     url: '/handle_login',
+        //     method: 'POST',
+        //     contentType: 'application/json',
+        //     data: JSON.stringify(event_data),
+        //     success: function (data) {
+        //         //location.reload();
+        //     }
+        // });
+        $.ajax({
+            url: '/save_event',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(event_data),
+            success: function (data) {
+              console.log("done");
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                    console.log("xhr: " + JSON.parse(JSON.stringify(xhr)))
+                    console.log("textStatus: " + textStatus)
+                    console.log("errorThrown: " + errorThrown)
+                  }
+        });
+        console.log("fin")
+        
       });
     </script>
 </body>
