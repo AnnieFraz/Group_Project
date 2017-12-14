@@ -21,7 +21,7 @@ function getEvents(page) {
 //Getting the json and displaying it
   $.ajax({
     type: "GET",
-    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=8&page=" + page,
+    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=8&page=" + (page + 1),
     async: true,
     dataType: "json",
     success: function(json) {
