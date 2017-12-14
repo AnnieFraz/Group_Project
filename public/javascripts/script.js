@@ -143,6 +143,8 @@ function showAttraction(json) {
   $('#events-panel').hide();
   $('#attraction-panel').show();
   $('#profile-alert').hide();
+  
+  $('#event_url').attr('href', json.url);
 
   $('#card-go-back').click(function() {
     getEvents(page);

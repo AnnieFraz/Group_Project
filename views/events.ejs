@@ -177,6 +177,7 @@
       <div style="display:inline">
       <button id="card-go-back" type="button" class="btn btn-success">Click to go Back!</button>
       <button id="tm-purchase" type="button" class="btn btn-success">Click to Purchase Tickets!</button>
+      <a id="event_url" href=""></a>
       <button name="add-events-profile" id="add-events-profile" type="button" class="btn btn-success">Click to Add Event to Profile!</button>
       </div>
       <!--<div name="alert-profile" id="alert-profile" class="alert alert-success" role="alert">-->
@@ -231,7 +232,8 @@
           user_id: user_info.id,
           event_title: $("#event-title").text(),
           event_class: $("#classification").text(),
-          event_img: $("#event-img").attr("src")
+          event_img: $("#event-img").attr("src"),
+          event_url: $("#event_url").attr("href")
         };
         console.log(event_data);
         $.ajax({

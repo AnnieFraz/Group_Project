@@ -57,7 +57,8 @@ router.post('/save_event', function(req, res, next) {
       user_id: req.body.user_id,
       event_title: req.body.event_title,
       event_class: req.body.event_class,
-      event_img: req.body.event_img
+      event_img: req.body.event_img,
+      event_url: req.body.event_url
     };
     
     mongo.connect(url, function(err, db) {
