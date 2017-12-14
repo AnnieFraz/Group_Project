@@ -117,26 +117,50 @@
 <!--</div>  -->
 </div>
 <br><br>
-<div class="card">
-      
-
-<center>
-  <div class="" style="width: 20rem;">
-  <div class="card-block">
-    <h4 class="card-title">My Saved Events!</h4>
-  </div>
-</div>
-<div class="" style="width: 20rem;">
-  <img class="card-img-top" src="" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title">Event Name</h4>
-    <p class="card-text">Event Description</p>
-    <a href="https://www.ticketmaster.com" class="btn btn-primary">Click for more info!</a>
-  </div>
-</div>  </center>
-</div>
 
 <script>
+  var events;
+<% if (typeof saved_events !== 'undefined' && saved_events.length > 0) { %>
+    events = <%-JSON.stringify(saved_events); %>
+    <% } else { %>
+    <% console.log("byeeee") %>
+    <% } %>
+    console.log(events);
+</script>
+
+<div style="text-align: left; margin-left: 10%; margin-top: 5%; margin-bottom: 5%;">
+    <h4>Saved Events</h4>
+</div>
+<div>
+    <a href="/profile"><button id="show-btn">Show Saved Events</button></a>
+</div>
+
+<% if (typeof saved_events !== 'undefined' && saved_events.length > 0) { %>
+  <% for(var i=0; i < saved_events.length; i++) { %>
+    
+     <div class="card">
+        <center>
+          <div class="" style="width: 20rem; padding-top: 20px">
+          </div>
+          <div class="" style="width: 20rem;">
+            <div class="card-block">
+              <h4 class="card-title"><%= saved_events[i].event_title; %></h4>
+              <img class="card-img-top" src=<%= saved_events[i].event_img %> alt="Card image cap">
+              <p class="card-text"><%= saved_events[i].event_class %></p>
+              <% if (typeof saved_events[i].event_url !== 'undefined') { %>
+              <a href=<%= saved_events[i].event_url %>  class="btn btn-primary">Click for more info!</a>
+              <% } else { %>
+              <p>No info available</p>
+              <% } %>
+            </div>
+          </div>
+        </center>
+    </div>
+  <% } %>
+<% } %>
+
+<script>
+  var new_url = "/profile";
   var user_info = window.localStorage.getItem("login_info");
       if (user_info === "undefined") {
         console.log("undefined");
@@ -145,6 +169,8 @@
         document.getElementById("profilePic").src = "";
       } else {
         user_info = JSON.parse(user_info);
+        new_url = "/fetch_saved_events" + "?id=" + user_info.id;
+        
         console.log(user_info);
         console.log(user_info.first_name);
         document.getElementById("login-btn").innerText = "Logout";
@@ -159,6 +185,16 @@
           fbLogout();
         }
       });
+      
+      $("#show-btn").click(function(event) {
+        event.preventDefault();
+        if (user_info === undefined) {
+          alert("Please sign in to view your saved events");
+        } else {
+          location.href = new_url;
+        }
+      })
+
 </script>
 
 

@@ -171,12 +171,13 @@
       <h3 id="event-title" class="event-title">Event Title</h3>
       <p id="classification"></p>
       <p id="places"></p><center>
-      <img class="card-img-top" src="" width="300" align="middle"></center>
+      <img id="event-img" class="card-img-top" src="" width="300" align="middle"></center>
     </div>
     <div class="card-body card text-center">
       <div style="display:inline">
       <button id="card-go-back" type="button" class="btn btn-success">Click to go Back!</button>
       <button id="tm-purchase" type="button" class="btn btn-success">Click to Purchase Tickets!</button>
+      <a id="event_url" href=""></a>
       <button name="add-events-profile" id="add-events-profile" type="button" class="btn btn-success">Click to Add Event to Profile!</button>
       </div>
       <!--<div name="alert-profile" id="alert-profile" class="alert alert-success" role="alert">-->
@@ -216,6 +217,41 @@
         } else {
           fbLogout();
         }
+      });
+    </script>
+    
+    <script>
+      $("#add-events-profile").click(function() {
+        
+        if (user_info === "undefined") {
+          console.log("undefined");
+          alert("Please sign in to save events to your profile.");
+          return;
+        }
+        var event_data = {
+          user_id: user_info.id,
+          event_title: $("#event-title").text(),
+          event_class: $("#classification").text(),
+          event_img: $("#event-img").attr("src"),
+          event_url: $("#event_url").attr("href")
+        };
+        console.log(event_data);
+        $.ajax({
+            url: '/save_event',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(event_data),
+            success: function (data) {
+              console.log("done");
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                    console.log("xhr: " + JSON.parse(JSON.stringify(xhr)))
+                    console.log("textStatus: " + textStatus)
+                    console.log("errorThrown: " + errorThrown)
+                  }
+        });
+        console.log("fin")
+        
       });
     </script>
 </body>
