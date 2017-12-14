@@ -1,4 +1,4 @@
-//Checking Mochas is working
+//Checking Mocha is working
 var assert = require('assert');
 describe('Array', function() {
   describe('#indexOf()', function() {
