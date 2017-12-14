@@ -4,12 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongodb = require('mongodb');
 
+var MongoClient = mongodb.MongoClient;
 var index = require('./routes/index');
 // var users = require('./routes/users');
 // var events = require('./routes/events');
 
 var app = express();
+var dburl = 'mongodb://admin:admin1@ds147799.mlab.com:47799/name_picker'
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -59,6 +62,14 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
+MongoClient.connect(dburl, function(err, db){
+  if (err) {
+    console.log('Unable to connect to the mongoDB server. Error: ', err)
+  } else {
+    console.log('Connection established to', dburl);
+    db.close();
+  }
+});
 
 // tar -zxvf mongodb-linux-x86_64-ubuntu1404-3.4.10.tgz
 
