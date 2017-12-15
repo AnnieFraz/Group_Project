@@ -19,23 +19,24 @@ var url = 'mongodb://localhost:27017/name_picker';
 //     // db.close();
 //   });
 
-/* GET home page. */
+// Routing to index.ejs
 router.get('/', function(req, res, next) {
   res.render('index');
 });
-
+// Routing to events.ejs
 router.get('/events', function(req, res, next) {
     res.render('events');
 });
-
+// Routing to profile.ejs
 router.get('/profile', function(req, res, next) {
     res.render('profile', {savedEvents: undefined});
 });
-
+// Routing to home.ejs
 router.get('/home', function(req, res, next) {
     res.render('home');
 });
 
+// Routing that handles the post operation for the facebook login
 router.post('/handle_login', function(req, res, next) {
    console.log('it worked'); 
 
@@ -50,7 +51,7 @@ router.post('/handle_login', function(req, res, next) {
    }
    
 });
-
+// Routing post that saves the information from the facebook login
 router.post('/save_event', function(req, res, next) {
     console.log('save events!'); 
     var event = {
@@ -73,7 +74,7 @@ router.post('/save_event', function(req, res, next) {
     console.log("finish!!!!!");
     
 });
-
+// routing that handles the saved events to the profile
 router.get('/fetch_saved_events', function(req, res, next) {
     console.log('fetching events');
     var id = req.query.id;

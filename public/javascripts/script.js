@@ -18,6 +18,7 @@ function getEvents(page) {
       return;
     }
   }
+  
 //Getting the json and displaying it
   $.ajax({
     type: "GET",
