@@ -7,7 +7,7 @@ var util = require("util");
 //Testing a json file from the ticketmaster api
 describe('returns Ticketmaster api test', function() {
     it('returns results from keyword=music', function(done) {
-        request.get({ url: baseUrl +"keyword"+"music"+"&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page=1" },
+        request.get({ url: baseUrl +"city"+"Boston"+"&apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page=1" },
             function(error, response, body) {
             		var bodyObj = JSON.parse(body);
                     console.log(body);

@@ -1,7 +1,8 @@
 <center>
 <h2>We are Team Event Finder!
 Your One Stop Shop for Events!</h2>
-
+<h3>Known Issues</h3>
+    <li>Nicholas is not stated as a contributer on the Github page but he has contributed to the project, Github is not recgnizing his pushes</li>
 <h3>Meet the Team</h3>
 <ul>
     <li>Andrew Sanchez: Project Manager</li>
@@ -28,7 +29,6 @@ Your One Stop Shop for Events!</h2>
     <li>Ticketmaster</li>
     <li>Facebook Login</li>
     <li>GoogleMaps</li>
-    <li>TripAdvisor</li>
     <li>Google Login</li>
 </ul>
 </center>
@@ -40,4 +40,5 @@ Dependencies
     -npm install mocha --save
     -npm install chai --save
     -npm install supertest --save
+    -npm install should --save
 ```
