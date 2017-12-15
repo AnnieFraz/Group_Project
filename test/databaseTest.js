@@ -129,10 +129,10 @@ MongoClient.connect(url, function(err, db) {
        id: "1",
        time: "11:00(PM)", date: "12/27/2017",
        picture_url: "https://vignette.wikia.nocookie.net/starwars/images/e/e2/Clawfish.jpg/revision/latest?cb=20110303190054",
-       location: "Behind the Otter Express, CSUMB", zip: "93933"});
-                 }).catch(function () {
+       location: "Behind the Otter Express, CSUMB", zip: "93933"}).catch(function () {
                         console.log("Insertion");
-                        });
+      });
+});
 ////////////////////////////////////////////////////  Test 7  //////////////////////////////////////////////////////////////////
 console.log('Starting new user creation test');
 console.log('Should return a insertion propmt');
