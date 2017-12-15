@@ -5,4 +5,10 @@ jobs:
        - image: circleci/node:7
      steps:
        - checkout
-       - run: npm test
+       - run: echo "hello world"
+     dependencies:
+        override:
+        - npm install --dev
+     test:
+        post:
+         - npm test
