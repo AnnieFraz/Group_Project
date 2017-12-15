@@ -220,7 +220,15 @@ background:#D8D8D8;
             var id_token = googleUser.getAuthResponse().id_token;
             console.log("ID Token: " + id_token);
             // window.setTimeout("
-            window.location.href = 'home1.html';
+            var user = {
+              id:profile.getId(),
+              first_name:profile.getGivenName(),
+              last_name:profile.getFamilyName(),
+              picture:profile.getImageUrl(),
+              type: 'google'
+            }
+            window.localStorage.setItem("login_info", JSON.stringify(user));
+            window.location.href = '/home';
           };
         </script>
     <br>
@@ -253,9 +261,5 @@ background:#D8D8D8;
 
       </a>
     </div>
-
-
-
   </body>
-
 </html>

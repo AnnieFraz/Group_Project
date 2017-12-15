@@ -57,7 +57,15 @@ function getFbUserData() {
                 //location.reload();
             }
         });
-        window.localStorage.setItem("login_info", JSON.stringify(response));
+        console.log("updated user");
+        var user = {
+            id : response.id,
+            first_name: response.first_name,
+            last_name: response.last_name,
+            picture: response.picture.data.url,
+            type: 'facebook'
+        }
+        window.localStorage.setItem("login_info", JSON.stringify(user));
         location.href = '/home';
     });
 }

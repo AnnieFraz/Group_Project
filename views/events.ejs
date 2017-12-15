@@ -21,19 +21,12 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script>
+    var pageCount = 1;
+  </script>
 </head>
 
 <body>
-<script>
-  // var user_info = window.localStorage.getItem("login_info");
-  // if (user_info === "undefined") {
-  //   console.log("undefined");
-  // } else {
-  //   console.log("has info");
-  //   console.log(user_info);
-  // }
-  // // console.log(data);
-</script>
 <!--beginning of navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Event Finder</a>
@@ -84,113 +77,50 @@
       <h2 class="panel-title">Check out events below!</h2>
       <p class="lead">From here you'll be able to see various events!</p>
       <hr class="my-4">
-      <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
-      <!--<p class="lead">-->
-      <!--  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
-      <!--</p>-->
     </div>
     <div>
-      <nav>
-        <ul class="nav nav-pills justify-content-center">
-          <li id="prev" class="nav-item"><a href="#" class="nav-link"><span aria-hidden="true">&larr;</span>  Previous</a></li>
-          <li id="next" class="nav-item"><a href="#" class="nav-link">Next  <span aria-hidden="true">&rarr;</span></a></li>
-        </ul>
-      </nav>
+      
     </div>
     <div id="events" class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="start-time"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-     </a>
-     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <h4 class="list-group-item-heading">Event title</h4>
-        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="venue"></p>
-        <p class="min_price">min price</p>
-        <p class="max_price">max price</p>
-        <button id="" type="button" class="btn btn-success">Click for more info!</button>
-      </a>
+      <select id="item_count">
+        <option>Select a number of events to display</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+      <script>
+        console.log(<%- JSON.stringify(events) %>);
+        function purchaseTickets(button) {
+          // console.log(button.value);
+          // alert(url)
+          window.open(button.value)
+        }
+      </script>
+      <% if (typeof events !== 'undefined' && events.length > 0) { %>
+        <% for(var i=0; i < events.length; i++) { %>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4 class="list-group-item-heading"> <%= events[i].name %> </h4>
+            <p class="types"> <%= (events[i].classifications[0].genre.name + ' - ' + events[i].classifications[0].segment.name + ' - ' + events[i].classifications[0].subGenre.name) %> </p>
+            <p class="start-time"> Start Date: <%= events[i].dates.start.localDate %> </p>
+            <p class="min_price"> Min Price: <%= events[i].priceRanges[0].min %> </p>
+            <p class="max_price"> Max Price: <%= events[i].priceRanges[0].max %> </p>
+                <div style="display:inline; ">
+                <button  type="button" value="<%= events[i].url %>" onclick="purchaseTickets(this)" class="btn btn-success">Click to Purchase Tickets!</button>
+                <button name="add-events-profile" onclick="addEvent(this)" value="<%= i %>" type="button" class="btn btn-success">Click to Add Event to Profile!</button>
+            </div>
+         </a>
+       <% } %>
+      <% } %>
     </div>
   </div>
-
-  <div id="attraction-panel" class="card">
-    <div id="attraction" class="card-body card text-center">
-      <h3 id="event-title" class="event-title">Event Title</h3>
-      <p id="classification"></p>
-      <p id="places"></p><center>
-      <img id="event-img" class="card-img-top" src="" width="300" align="middle"></center>
-    </div>
-    <div class="card-body card text-center">
-      <div style="display:inline">
-      <button id="card-go-back" type="button" class="btn btn-success">Click to go Back!</button>
-      <button id="tm-purchase" type="button" class="btn btn-success">Click to Purchase Tickets!</button>
-      <a id="event_url" href=""></a>
-      <button name="add-events-profile" id="add-events-profile" type="button" class="btn btn-success">Click to Add Event to Profile!</button>
-      </div>
-      <!--<div name="alert-profile" id="alert-profile" class="alert alert-success" role="alert">-->
-      <!--  This is a success alert—check it out!-->
-      <!--</div>-->
-    </div>
-  </div>
+  
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <script src="/javascripts/script.js"></script>
+  <!--<script src="/javascripts/script.js"></script>-->
   <!--Facebook Login Setup Script-->
   <script type="text/javascript" src="/javascripts/facebook-oauth.js"></script>
       <hr>
@@ -221,19 +151,28 @@
     </script>
     
     <script>
-      $("#add-events-profile").click(function() {
-        
+      // $("#add-events-profile").click(function() {
+      function addEvent(button) {
+        var i = button.value;
+        <% if (typeof events !== 'undefined' && events.length > 0) { %>
+          var events = <%-JSON.stringify(events); %>
+          event = events[i];
+          
+        console.log(event);
         if (user_info === "undefined") {
           console.log("undefined");
           alert("Please sign in to save events to your profile.");
           return;
         }
+        
+        var classification = event.classifications[0].genre.name + ' - ' + event.classifications[0].segment.name + ' - ' + event.classifications[0].subGenre.name;
+        
         var event_data = {
           user_id: user_info.id,
-          event_title: $("#event-title").text(),
-          event_class: $("#classification").text(),
-          event_img: $("#event-img").attr("src"),
-          event_url: $("#event_url").attr("href")
+          event_title: event.name, //$("#event-title").text(),
+          event_class: classification,
+          event_img: event.images[0].url,
+          event_url: event.url
         };
         console.log(event_data);
         $.ajax({
@@ -251,8 +190,30 @@
                   }
         });
         console.log("fin")
+        <% } %>
+      }
+      
+      $('#search_form').submit(function (evt) {
+          evt.preventDefault();
+          pageCount = $('#item_count option:selected').val();
+          let searchFilter = $("#search_filter").val();
+          // searchFilter = searchFilter.substr(3); // removes the 'by ' phrase from the filter to get key to use in url
+          // alert(searchFilter);
+          let searchCriteria = $('#search_input').val();
+          //alert(searchCriteria);
+          // searchEvents(searchFilter ,searchCriteria);
+          location.href = '/search_events?searchFilter=' + searchFilter + '&searchCriteria=' + searchCriteria + '&pageCount=' + pageCount;
         
       });
+      
+      $('#item_count').change(function() {
+        let searchFilter = $("#search_filter").val();
+        let searchCriteria = $('#search_input').val();
+        pageCount = $('#item_count option:selected').val();
+        location.href = '/search_events?searchFilter=' + searchFilter + '&searchCriteria=' + searchCriteria + '&pageCount=' + pageCount;
+      })
+      
+      
     </script>
 </body>
 

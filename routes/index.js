@@ -4,6 +4,8 @@ var router = express.Router();
 var mongo = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
+var async = require('async');
+var ticketmaster_api = require('./ticketmaster_api');
 
 var url = 'mongodb://localhost:27017/name_picker';
 
@@ -25,7 +27,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/events', function(req, res, next) {
-    res.render('events');
+    
+    ticketmaster_api.makeApiRequest(function(results) {
+        res.render('events', {events: results});
+    });
+});
+
+router.get('/search_events', function(req, res, next) {
+    // reminder, remove string spaces with %20
+    ticketmaster_api.searchEvents(req.query.searchFilter, req.query.searchCriteria, req.query.pageCount, function(results) {
+        console.log("results array");
+        console.log(results);
+        
+        res.render('events', {events: results});
+    });
 });
 
 router.get('/profile', function(req, res, next) {
