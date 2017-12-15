@@ -29,7 +29,6 @@ Your One Stop Shop for Events!</h2>
     <li>Ticketmaster</li>
     <li>Facebook Login</li>
     <li>GoogleMaps</li>
-    <li>TripAdvisor</li>
     <li>Google Login</li>
 </ul>
 </center>
@@ -41,4 +40,5 @@ Dependencies
     -npm install mocha --save
     -npm install chai --save
     -npm install supertest --save
+    -npm install should --save
 ```
