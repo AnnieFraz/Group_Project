@@ -215,13 +215,21 @@ background:#D8D8D8;
             console.log('Given Name: ' + profile.getGivenName());
             console.log('Family Name: ' + profile.getFamilyName());
             console.log("Image URL: " + profile.getImageUrl());
-            console.log("Email: " + profile.getEmail());
             // The ID token you need to pass to your backend:
             var id_token = googleUser.getAuthResponse().id_token;
             console.log("ID Token: " + id_token);
             // window.setTimeout("
-            window.location.href = '/views/index.ejs';
+            var user = {
+              id:profile.getId(),
+              first_name:profile.getGivenName(),
+              last_name:profile.getFamilyName(),
+              picture:picture.getImageUrl(),
+            }
+        window.localStorage.setItem("login_info", JSON.stringify(user));
+            window.location.href = '/';
           };
+          
+          
         </script>
     <br>
     <br>
@@ -253,6 +261,7 @@ background:#D8D8D8;
 
       </a>
     </div>
+    
 
 
 

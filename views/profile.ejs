@@ -3,15 +3,21 @@
 
 <head>
   <title>Event Finder</title>
-  <!-- Required meta tags -->
+   <!--Required meta tags -->
   <meta charset="utf-8">
   <link rel="shortcut icon" href="img/Logo.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="246480850653-20olgfmijst2977ju9feja8rjrsld8u6.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
+   
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <style>
     #profilePic {
       margin-bottom: 30px;
@@ -27,6 +33,7 @@
 </head>
 
 <body>
+  
   <!--beginning of navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Event Finder</a>
@@ -135,6 +142,8 @@
     <a href="/profile"><button id="show-btn">Show Saved Events</button></a>
 </div>
 
+<div style="display: none" class="g-signin2" data-onsuccess="onSignIn"></div>
+
 <% if (typeof saved_events !== 'undefined' && saved_events.length > 0) { %>
   <% for(var i=0; i < saved_events.length; i++) { %>
     
@@ -160,8 +169,18 @@
 <% } %>
 
 <script>
+function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          window.localStorage.setItem("login_info", undefined);
+        });
+        location.href = '/';
+      }
   var new_url = "/profile";
   var user_info = window.localStorage.getItem("login_info");
+  console.log("user info");
+  console.log(user_info);
       if (user_info === "undefined") {
         console.log("undefined");
         document.getElementById("login-btn").innerText = "Login";
@@ -175,14 +194,18 @@
         console.log(user_info.first_name);
         document.getElementById("login-btn").innerText = "Logout";
         document.getElementById("user_name").innerHTML = user_info.first_name + " " + user_info.last_name;
-        document.getElementById("profilePic").src = user_info.picture.data.url;
+        document.getElementById("profilePic").src = user_info.picture;
       }
       
       $("#login-link").click(function() {
         if (user_info === "undefined") {
           location.href = "/";
         } else {
-          fbLogout();
+          if (user_info.type == 'facebook') {
+            fbLogout();
+          } else if (user_info.type == 'google') {
+              signOut();
+          }
         }
       });
       
@@ -194,8 +217,18 @@
           location.href = new_url;
         }
       })
+      
+      
+      
 
 </script>
+
+<script>
+    
+  </script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 
 
     <!--Facebook Login Setup Script-->
