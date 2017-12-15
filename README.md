@@ -3,6 +3,7 @@
 Your One Stop Shop for Events!</h2>
 <h3>Known Issues</h3>
     <li>Nicholas is not stated as a contributer on the Github page but he has contributed to the project, Github is not recgnizing his pushes</li>
+    <li>Application is not stable on heroku at some points but works fine on cloud 9, Heroku is volitile</li>
 <h3>Meet the Team</h3>
 <ul>
     <li>Andrew Sanchez: Project Manager</li>
