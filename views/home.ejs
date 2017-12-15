@@ -3,14 +3,20 @@
 
 <head>
   <title>Event Finder</title>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <link rel="shortcut icon" href="img/Logo.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Latest compiled and minified CSS -->
+   
+   
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="246480850653-20olgfmijst2977ju9feja8rjrsld8u6.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <style>
+   
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"><style>
     #attraction-panel {
       display: none;
     }
@@ -62,6 +68,7 @@
     </div>
   </nav>
   <!--end of navbar-->
+  <div style="display: none" class="g-signin2" data-onsuccess="onSignIn"></div>
 
   <main role="main" class="container">
 
@@ -125,6 +132,34 @@
     
     
     <script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          window.localStorage.setItem("login_info", undefined);
+        });
+        location.href = '/';
+      }
+  var new_url = "/profile";
+  var user_info = window.localStorage.getItem("login_info");
+  console.log("user info");
+  console.log(user_info);
+      if (user_info === "undefined") {
+        console.log("undefined");
+        document.getElementById("login-btn").innerText = "Login";
+        document.getElementById("user_name").innerHTML = "Please Login";
+        document.getElementById("profilePic").src = "";
+      } else {
+        user_info = JSON.parse(user_info);
+        new_url = "/fetch_saved_events" + "?id=" + user_info.id;
+        
+        console.log(user_info);
+        console.log(user_info.first_name);
+        document.getElementById("login-btn").innerText = "Logout";
+        document.getElementById("user_name").innerHTML = user_info.first_name + " " + user_info.last_name;
+        document.getElementById("profilePic").src = user_info.picture;
+      }
+      });
     var user_info = window.localStorage.getItem("login_info");
       if (user_info === "undefined") {
         console.log("undefined");
@@ -133,13 +168,19 @@
         user_info = JSON.parse(user_info);
         document.getElementById("login-btn").innerText = "Logout";
       }
-      $("#login-btn").click(function() {
+       $("#login-btn").click(function() {
         if (user_info === "undefined") {
           location.href = "/";
         } else {
-          fbLogout();
+          if (user_info.type == 'facebook') {
+            fbLogout();
+          } else if (user_info.type == 'google') {
+              signOut();
+          }
         }
       });
+      
+      
     </script>
 </body>
 
